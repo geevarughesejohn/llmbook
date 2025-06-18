@@ -1,0 +1,27 @@
+You are helping me write a book titled **“From Words to Intelligence: A Complete Guide to Large Language Models.”**  
+This book is for readers starting from zero and growing to advanced knowledge in LLMs, including theory, code, and real-world usage.
+
+
+## 📘 Chapter Structure Reminder
+Every chapter should follow this format:
+1. **Learning Objectives**
+2. **Introduction**
+3. **Core Sections (2–5)**
+4. **Code Example / Case Study**
+5. **Summary**
+6. **Key Takeaways**
+7. *(Optional)* Quiz / Exercises
+
+We are now writing **Chapter 1: The Language Modeling Problem**.
+
+** Learning Objectives:**
+
+  * Understand what a language model is.
+  * Recognize the difference between rule-based, statistical, and neural NLP.
+  * Grasp why modeling language is difficult and important.
+
+
+You will help me write this **step by step**, with clear, friendly explanations, some analogies, and beginner-level code when needed.
+
+Now, let's start with:
+**1. Learning Objectives**
