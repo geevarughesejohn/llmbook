@@ -8,19 +8,25 @@
       
       
       
+        <link rel="canonical" href="https://geevarughesejohn.github.io/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.2%20Inside%20the%20GRU%20Cell.html">
       
       
+        <link rel="prev" href="4.5.1%20Motivation%20for%20GRUs.html">
       
-      <link rel="icon" href="/llmbook/assets/images/favicon.png">
+      
+        <link rel="next" href="4.5.3%20Comparing%20GRU%20and%20LSTM.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>From Words to Intelligence: A Complete Guide to Large Language Models</title>
+        <title>4.5.2 Inside the GRU Cell - From Words to Intelligence: A Complete Guide to Large Language Models</title>
       
     
     
-      <link rel="stylesheet" href="/llmbook/assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
       
 
@@ -39,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("/llmbook/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#452-inside-the-gru-cell" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/llmbook/." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-header__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
+    <a href=".." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-header__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -89,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              4.5.2 Inside the GRU Cell
             
           </span>
         </div>
@@ -167,7 +178,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/llmbook/." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-nav__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
+    <a href=".." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-nav__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -228,7 +239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.1%20learning%20objective.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.1%20learning%20objective.html" class="md-nav__link">
         
   
   
@@ -251,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.2%20Introduction.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.2%20Introduction.html" class="md-nav__link">
         
   
   
@@ -274,7 +285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.3%20What%20Does%20It%20Mean%20to%20%E2%80%9CModel%E2%80%9D%20Language%3F.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.3%20What%20Does%20It%20Mean%20to%20%E2%80%9CModel%E2%80%9D%20Language%3F.html" class="md-nav__link">
         
   
   
@@ -297,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.4%20A%20Brief%20History%20of%20Language%20Modeling%3A%20Rules%20%E2%86%92%20Statistics%20%E2%86%92%20Neural%20Nets.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.4%20A%20Brief%20History%20of%20Language%20Modeling%3A%20Rules%20%E2%86%92%20Statistics%20%E2%86%92%20Neural%20Nets.html" class="md-nav__link">
         
   
   
@@ -320,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.5%20Why%20Is%20Modeling%20Language%20So%20Difficult%3F.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.5%20Why%20Is%20Modeling%20Language%20So%20Difficult%3F.html" class="md-nav__link">
         
   
   
@@ -343,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.6%20Code%20Example%3A%20A%20Tiny%20Predictive%20Language%20Model%20%28with%20N-Grams%29.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.6%20Code%20Example%3A%20A%20Tiny%20Predictive%20Language%20Model%20%28with%20N-Grams%29.html" class="md-nav__link">
         
   
   
@@ -366,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.7%20Summary.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.7%20Summary.html" class="md-nav__link">
         
   
   
@@ -389,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.8%20Key%20Takeaways.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.8%20Key%20Takeaways.html" class="md-nav__link">
         
   
   
@@ -412,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.9%20Quiz%20Exercises.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.9%20Quiz%20Exercises.html" class="md-nav__link">
         
   
   
@@ -435,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/ngrms.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/ngrms.html" class="md-nav__link">
         
   
   
@@ -508,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/1%20Introduction%3A%20What%20is%20Classical%20NLP%3F.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/1%20Introduction%3A%20What%20is%20Classical%20NLP%3F.html" class="md-nav__link">
         
   
   
@@ -531,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/2%20Text%20Preprocessing%3A%20Cleaning%20Up%20Language.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/2%20Text%20Preprocessing%3A%20Cleaning%20Up%20Language.html" class="md-nav__link">
         
   
   
@@ -554,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3%20Why%20Machines%20Need%20Numbers%20for%20clarity%3F.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3%20Why%20Machines%20Need%20Numbers%20for%20clarity%3F.html" class="md-nav__link">
         
   
   
@@ -577,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3.1%20The%20Bag-of-Words%20%28BoW%29%20Model.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3.1%20The%20Bag-of-Words%20%28BoW%29%20Model.html" class="md-nav__link">
         
   
   
@@ -600,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3.2%20Term%20Frequency%E2%80%93Inverse%20Document%20Frequency%20%28TF-IDF%29.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3.2%20Term%20Frequency%E2%80%93Inverse%20Document%20Frequency%20%28TF-IDF%29.html" class="md-nav__link">
         
   
   
@@ -623,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3.3%20TF-IDF%3A%20Sparse%20Vectors%20and%20High%20Dimensionality.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3.3%20TF-IDF%3A%20Sparse%20Vectors%20and%20High%20Dimensionality.html" class="md-nav__link">
         
   
   
@@ -646,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/4%20Classical%20NLP%20Pipelines.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/4%20Classical%20NLP%20Pipelines.html" class="md-nav__link">
         
   
   
@@ -669,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/5%20Limitations%20of%20Rule-Based%20and%20Statistical%20Methods.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/5%20Limitations%20of%20Rule-Based%20and%20Statistical%20Methods.html" class="md-nav__link">
         
   
   
@@ -692,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/E%3AA%20Classical%20Pipeline.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3AA%20Classical%20Pipeline.html" class="md-nav__link">
         
   
   
@@ -715,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ABoW%20with%20Scikit-learn.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ABoW%20with%20Scikit-learn.html" class="md-nav__link">
         
   
   
@@ -738,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ATF-IDF.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ATF-IDF.html" class="md-nav__link">
         
   
   
@@ -761,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/chapter.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/chapter.html" class="md-nav__link">
         
   
   
@@ -834,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/%20Code%20Example%3A%20Using%20Pretrained%20Word%20Embeddings.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/%20Code%20Example%3A%20Using%20Pretrained%20Word%20Embeddings.html" class="md-nav__link">
         
   
   
@@ -857,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.1%20Introduction%3A%20From%20Counting%20Words%20to%20Capturing%20Meaning.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.1%20Introduction%3A%20From%20Counting%20Words%20to%20Capturing%20Meaning.html" class="md-nav__link">
         
   
   
@@ -880,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.1%20What%20Is%20a%20Word%20Embedding%3F.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.1%20What%20Is%20a%20Word%20Embedding%3F.html" class="md-nav__link">
         
   
   
@@ -903,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.2%20Sparse%20vs.%20Dense%20Representations.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.2%20Sparse%20vs.%20Dense%20Representations.html" class="md-nav__link">
         
   
   
@@ -926,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.3%20How%20Embeddings%20Represent%20Similarity.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.3%20How%20Embeddings%20Represent%20Similarity.html" class="md-nav__link">
         
   
   
@@ -949,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.4%20The%20Shape%20of%20Meaning%3A%20Embedding%20Space.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.4%20The%20Shape%20of%20Meaning%3A%20Embedding%20Space.html" class="md-nav__link">
         
   
   
@@ -972,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.5%20A%20Glimpse%20at%20the%20Math.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.5%20A%20Glimpse%20at%20the%20Math.html" class="md-nav__link">
         
   
   
@@ -995,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.3%20How%20Embeddings%20Capture%20Meaning.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.3%20How%20Embeddings%20Capture%20Meaning.html" class="md-nav__link">
         
   
   
@@ -1018,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.1%20What%20Is%20Word2Vec%3F.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.1%20What%20Is%20Word2Vec%3F.html" class="md-nav__link">
         
   
   
@@ -1041,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.2%20CBOW%20and%20Skip-Gram%3A%20Two%20Learning%20Strategies.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.2%20CBOW%20and%20Skip-Gram%3A%20Two%20Learning%20Strategies.html" class="md-nav__link">
         
   
   
@@ -1064,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.3%20Training%20Word2Vec%3A%20How%20the%20Model%20Learns.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.3%20Training%20Word2Vec%3A%20How%20the%20Model%20Learns.html" class="md-nav__link">
         
   
   
@@ -1087,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.4%20Negative%20Sampling%20and%20Efficiency%20Tricks.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.4%20Negative%20Sampling%20and%20Efficiency%20Tricks.html" class="md-nav__link">
         
   
   
@@ -1110,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.5%20Practical%20Example%3A%20Training%20Word2Vec%20in%20Python.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.5%20Practical%20Example%3A%20Training%20Word2Vec%20in%20Python.html" class="md-nav__link">
         
   
   
@@ -1133,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.6%20Strengths%20and%20Limitations%20of%20Word2Vec.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.6%20Strengths%20and%20Limitations%20of%20Word2Vec.html" class="md-nav__link">
         
   
   
@@ -1156,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5%20Beyond%20Word2Vec%20%E2%80%93%20The%20Evolution%20of%20Word%20Embeddings.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5%20Beyond%20Word2Vec%20%E2%80%93%20The%20Evolution%20of%20Word%20Embeddings.html" class="md-nav__link">
         
   
   
@@ -1179,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.1%20Why%20Move%20Beyond%20Word2Vec%3F.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.1%20Why%20Move%20Beyond%20Word2Vec%3F.html" class="md-nav__link">
         
   
   
@@ -1202,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.2%20FastText%20%E2%80%93%20Words%20as%20Bags%20of%20Subwords.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.2%20FastText%20%E2%80%93%20Words%20as%20Bags%20of%20Subwords.html" class="md-nav__link">
         
   
   
@@ -1225,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.3%20GloVe%20%E2%80%93%20Global%20Vectors%20for%20Word%20Representation.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.3%20GloVe%20%E2%80%93%20Global%20Vectors%20for%20Word%20Representation.html" class="md-nav__link">
         
   
   
@@ -1248,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.4%20Comparing%20Word2Vec%2C%20GloVe%2C%20and%20FastText.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.4%20Comparing%20Word2Vec%2C%20GloVe%2C%20and%20FastText.html" class="md-nav__link">
         
   
   
@@ -1271,7 +1282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.6%20Limitations%20of%20Word%20Embeddings%20%E2%80%94%20And%20What%20Comes%20Next.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.6%20Limitations%20of%20Word%20Embeddings%20%E2%80%94%20And%20What%20Comes%20Next.html" class="md-nav__link">
         
   
   
@@ -1294,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/Learning%20Objectives.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/Learning%20Objectives.html" class="md-nav__link">
         
   
   
@@ -1317,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/chapter.html" class="md-nav__link">
+      <a href="../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/chapter.html" class="md-nav__link">
         
   
   
@@ -1390,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203E%3A%20Introduction%20to%20Machine%20Learning%20and%20Neural%20Networks/chapter.html" class="md-nav__link">
+      <a href="../Chapter%203E%3A%20Introduction%20to%20Machine%20Learning%20and%20Neural%20Networks/chapter.html" class="md-nav__link">
         
   
   
@@ -1417,8 +1428,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1429,11 +1442,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1449,7 +1462,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Chapter 4: Recurrent Models and Language Generation
@@ -1463,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.1%20Introduction%20%E2%80%93%20Why%20Word%20Order%20and%20Memory%20Matter.html" class="md-nav__link">
+      <a href="4.1%20Introduction%20%E2%80%93%20Why%20Word%20Order%20and%20Memory%20Matter.html" class="md-nav__link">
         
   
   
@@ -1486,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.1%20The%20Need%20for%20Sequential%20Processing.html" class="md-nav__link">
+      <a href="4.2.1%20The%20Need%20for%20Sequential%20Processing.html" class="md-nav__link">
         
   
   
@@ -1509,7 +1522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.2%20The%20Core%20Idea%20of%20Recurrence.html" class="md-nav__link">
+      <a href="4.2.2%20The%20Core%20Idea%20of%20Recurrence.html" class="md-nav__link">
         
   
   
@@ -1532,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.3%20Unrolling%20an%20RNN%20Over%20Time.html" class="md-nav__link">
+      <a href="4.2.3%20Unrolling%20an%20RNN%20Over%20Time.html" class="md-nav__link">
         
   
   
@@ -1555,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.4%20RNN%20in%20Practice%20%E2%80%93%20A%20Step-by-Step%20Example.html" class="md-nav__link">
+      <a href="4.2.4%20RNN%20in%20Practice%20%E2%80%93%20A%20Step-by-Step%20Example.html" class="md-nav__link">
         
   
   
@@ -1578,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.5%3A%20Strengths%20and%20Weaknesses%20of%20Vanilla%20RNNs.html" class="md-nav__link">
+      <a href="4.2.5%3A%20Strengths%20and%20Weaknesses%20of%20Vanilla%20RNNs.html" class="md-nav__link">
         
   
   
@@ -1601,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.3%20The%20Problem%20of%20Vanishing%20Gradients.html" class="md-nav__link">
+      <a href="4.3%20The%20Problem%20of%20Vanishing%20Gradients.html" class="md-nav__link">
         
   
   
@@ -1624,7 +1637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.1%20Motivation%3A%20Why%20Vanilla%20RNNs%20Need%20Help.html" class="md-nav__link">
+      <a href="4.4.1%20Motivation%3A%20Why%20Vanilla%20RNNs%20Need%20Help.html" class="md-nav__link">
         
   
   
@@ -1647,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.2%20Inside%20the%20LSTM%20Cell.html" class="md-nav__link">
+      <a href="4.4.2%20Inside%20the%20LSTM%20Cell.html" class="md-nav__link">
         
   
   
@@ -1670,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.3%20How%20LSTMs%20Process%20Sequences.html" class="md-nav__link">
+      <a href="4.4.3%20How%20LSTMs%20Process%20Sequences.html" class="md-nav__link">
         
   
   
@@ -1693,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.4%20When%20and%20Why%20to%20Use%20LSTMs.html" class="md-nav__link">
+      <a href="4.4.4%20When%20and%20Why%20to%20Use%20LSTMs.html" class="md-nav__link">
         
   
   
@@ -1716,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.1%20Motivation%20for%20GRUs.html" class="md-nav__link">
+      <a href="4.5.1%20Motivation%20for%20GRUs.html" class="md-nav__link">
         
   
   
@@ -1736,10 +1749,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.2%20Inside%20the%20GRU%20Cell.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    4.5.2 Inside the GRU Cell
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="4.5.2%20Inside%20the%20GRU%20Cell.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1750,6 +1783,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#452-inside-the-gru-cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.2 Inside the GRU Cell
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5.2 Inside the GRU Cell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-memory-track-hidden-state-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 One Memory Track: Hidden State Only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-gate-z_t-control-what-to-keep" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Update Gate $z_t$: Control What to Keep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-gate-r_t-control-how-to-mix-the-past" class="md-nav__link">
+    <span class="md-ellipsis">
+      ♻️ Reset Gate $r_t$: Control How to Mix the Past
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-hidden-state-tildeh_t-the-new-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Candidate Hidden State $\tilde{h}_t$: The New Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-step-update-the-hidden-state-h_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 Final Step: Update the Hidden State $h_t$
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analogy-thoughtful-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Analogy: Thoughtful Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-gru-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔁 Summary of GRU Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1762,7 +1891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.3%20Comparing%20GRU%20and%20LSTM.html" class="md-nav__link">
+      <a href="4.5.3%20Comparing%20GRU%20and%20LSTM.html" class="md-nav__link">
         
   
   
@@ -1785,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.4%20When%20to%20Use%20GRUs.html" class="md-nav__link">
+      <a href="4.5.4%20When%20to%20Use%20GRUs.html" class="md-nav__link">
         
   
   
@@ -1808,7 +1937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.1%3A%20Language%20Generation%20with%20RNNs.html" class="md-nav__link">
+      <a href="4.6.1%3A%20Language%20Generation%20with%20RNNs.html" class="md-nav__link">
         
   
   
@@ -1831,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.2%20Training%20a%20Recurrent%20Language%20Model.html" class="md-nav__link">
+      <a href="4.6.2%20Training%20a%20Recurrent%20Language%20Model.html" class="md-nav__link">
         
   
   
@@ -1854,7 +1983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.3%20Sampling%20and%20Generation%20During%20Inference.html" class="md-nav__link">
+      <a href="4.6.3%20Sampling%20and%20Generation%20During%20Inference.html" class="md-nav__link">
         
   
   
@@ -1877,7 +2006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.4%20Code%20Example%20%E2%80%93%20Generating%20Text%20with%20GRU.html" class="md-nav__link">
+      <a href="4.6.4%20Code%20Example%20%E2%80%93%20Generating%20Text%20with%20GRU.html" class="md-nav__link">
         
   
   
@@ -1900,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.5%20Challenges%20and%20Limitations%20of%20RNN-based%20Generation.html" class="md-nav__link">
+      <a href="4.6.5%20Challenges%20and%20Limitations%20of%20RNN-based%20Generation.html" class="md-nav__link">
         
   
   
@@ -1923,7 +2052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/RNN.html" class="md-nav__link">
+      <a href="RNN.html" class="md-nav__link">
         
   
   
@@ -1964,6 +2093,92 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#452-inside-the-gru-cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.2 Inside the GRU Cell
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5.2 Inside the GRU Cell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-memory-track-hidden-state-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 One Memory Track: Hidden State Only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-gate-z_t-control-what-to-keep" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Update Gate $z_t$: Control What to Keep
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-gate-r_t-control-how-to-mix-the-past" class="md-nav__link">
+    <span class="md-ellipsis">
+      ♻️ Reset Gate $r_t$: Control How to Mix the Past
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#candidate-hidden-state-tildeh_t-the-new-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Candidate Hidden State $\tilde{h}_t$: The New Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-step-update-the-hidden-state-h_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 Final Step: Update the Hidden State $h_t$
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analogy-thoughtful-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Analogy: Thoughtful Updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-gru-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔁 Summary of GRU Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1974,8 +2189,101 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+  <h1>4.5.2 Inside the GRU Cell</h1>
+
+<h2 id="452-inside-the-gru-cell"><strong>4.5.2 Inside the GRU Cell</strong></h2>
+<p><em>A simpler, elegant memory design</em></p>
+<p>If the LSTM is a memory system with three levers and two compartments, the <strong>Gated Recurrent Unit (GRU)</strong> simplifies everything down to just <strong>two levers</strong> and <strong>a single memory track</strong>. And yet, it still manages to remember and forget, learn and adapt—often just as well.</p>
+<p>Let’s look inside a GRU cell to understand how this streamlined mechanism works.</p>
+<hr />
+<h3 id="one-memory-track-hidden-state-only">🧠 One Memory Track: Hidden State Only</h3>
+<p>Unlike the LSTM, the GRU has <strong>no separate cell state</strong>. Instead, it keeps everything it needs in a single <strong>hidden state</strong> $h_t$. This hidden state is updated at each time step using two gates:</p>
+<ul>
+<li>The <strong>Update Gate</strong> $z_t$</li>
+<li>The <strong>Reset Gate</strong> $r_t$</li>
+</ul>
+<p>Let’s break these down.</p>
+<hr />
+<h3 id="update-gate-z_t-control-what-to-keep">🔄 Update Gate $z_t$: Control What to Keep</h3>
+<p>The <strong>update gate</strong> determines how much of the <strong>past</strong> should be kept around and how much should be replaced by the <strong>new</strong> information.</p>
+<p>The formula is:</p>
+<p>$$
+z_t = \sigma(W_z x_t + U_z h_{t-1} + b_z)
+$$</p>
+<p>Where:</p>
+<ul>
+<li>$x_t$: input at time step $t$</li>
+<li>$h_{t-1}$: previous hidden state</li>
+<li>$\sigma$: sigmoid activation (values between 0 and 1)</li>
+</ul>
+<p><strong>Intuition:</strong>
+If $z_t \approx 1$, we mostly keep the past memory.
+If $z_t \approx 0$, we replace it with new information.</p>
+<hr />
+<h3 id="reset-gate-r_t-control-how-to-mix-the-past">♻️ Reset Gate $r_t$: Control How to Mix the Past</h3>
+<p>The <strong>reset gate</strong> decides how much of the past hidden state should be considered when generating new information.</p>
+<p>$$
+r_t = \sigma(W_r x_t + U_r h_{t-1} + b_r)
+$$</p>
+<p>This gate lets the GRU <strong>"forget"</strong> parts of the previous state when appropriate—especially helpful in dealing with noise or irrelevant past input.</p>
+<hr />
+<h3 id="candidate-hidden-state-tildeh_t-the-new-memory">⚙️ Candidate Hidden State $\tilde{h}_t$: The New Memory</h3>
+<p>Once the gates are computed, the GRU calculates a <strong>candidate</strong> hidden state $\tilde{h}_t$ based on the current input and a <strong>modified</strong> past:</p>
+<p>$$
+\tilde{h}<em>t = \tanh(W_h x_t + U_h (r_t \odot h</em>{t-1}) + b_h)
+$$</p>
+<ul>
+<li>$r_t \odot h_{t-1}$: this is a filtered version of the past, shaped by the reset gate</li>
+<li>$\tanh$: ensures the output values stay in a manageable range</li>
+</ul>
+<hr />
+<h3 id="final-step-update-the-hidden-state-h_t">🧾 Final Step: Update the Hidden State $h_t$</h3>
+<p>The final hidden state is computed by <strong>interpolating</strong> between the old and new memory using the update gate:</p>
+<p>$$
+h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
+$$</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>If the update gate $z_t$ is high → we mostly use the <strong>new</strong> information.</li>
+<li>If $z_t$ is low → we mostly <strong>retain</strong> the previous memory.</li>
+</ul>
+<p>This formula is elegant: it’s just a <strong>weighted average</strong> of the past and present.</p>
+<hr />
+<h3 id="analogy-thoughtful-updating">📚 Analogy: Thoughtful Updating</h3>
+<p>Imagine you're editing a live document:</p>
+<ul>
+<li>The <strong>reset gate</strong> decides how much of the earlier draft to look at.</li>
+<li>The <strong>update gate</strong> decides whether to <strong>keep</strong> what you had or <strong>replace</strong> it with what you just wrote.</li>
+</ul>
+<p>In some sentences, you only tweak a few words (low update). In others, you rewrite everything (high update). The GRU behaves similarly.</p>
+<hr />
+<h3 id="summary-of-gru-flow">🔁 Summary of GRU Flow</h3>
+<p>Here’s a quick recap of the GRU’s internal steps:</p>
+<ol>
+<li>Compute <strong>update</strong> and <strong>reset</strong> gates from input and past state.</li>
+<li>Use reset gate to filter old memory.</li>
+<li>Generate candidate memory from input and modified past.</li>
+<li>Use update gate to blend old and new memory into the new state.</li>
+</ol>
+<p>All of this happens <strong>within a single hidden state</strong>, which is passed along through time.</p>
+<p>In the next section, we’ll compare this simplified design to the LSTM and explore when to use each one.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2011,10 +2319,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/llmbook/", "features": ["navigation.sections", "content.code.copy"], "search": "/llmbook/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/llmbook/assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>

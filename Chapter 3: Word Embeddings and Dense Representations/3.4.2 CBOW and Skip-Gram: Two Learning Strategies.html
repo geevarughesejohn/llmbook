@@ -8,19 +8,25 @@
       
       
       
+        <link rel="canonical" href="https://geevarughesejohn.github.io/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.2%20CBOW%20and%20Skip-Gram%3A%20Two%20Learning%20Strategies.html">
       
       
+        <link rel="prev" href="3.4.1%20What%20Is%20Word2Vec%3F.html">
       
-      <link rel="icon" href="/llmbook/assets/images/favicon.png">
+      
+        <link rel="next" href="3.4.3%20Training%20Word2Vec%3A%20How%20the%20Model%20Learns.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>From Words to Intelligence: A Complete Guide to Large Language Models</title>
+        <title>3.4.2 CBOW and Skip Gram: Two Learning Strategies - From Words to Intelligence: A Complete Guide to Large Language Models</title>
       
     
     
-      <link rel="stylesheet" href="/llmbook/assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
       
 
@@ -39,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL("/llmbook/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#342-cbow-and-skip-gram-two-learning-strategies" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/llmbook/." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-header__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
+    <a href=".." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-header__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -89,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              3.4.2 CBOW and Skip Gram: Two Learning Strategies
             
           </span>
         </div>
@@ -167,7 +178,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/llmbook/." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-nav__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
+    <a href=".." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-nav__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -228,7 +239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.1%20learning%20objective.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.1%20learning%20objective.html" class="md-nav__link">
         
   
   
@@ -251,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.2%20Introduction.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.2%20Introduction.html" class="md-nav__link">
         
   
   
@@ -274,7 +285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.3%20What%20Does%20It%20Mean%20to%20%E2%80%9CModel%E2%80%9D%20Language%3F.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.3%20What%20Does%20It%20Mean%20to%20%E2%80%9CModel%E2%80%9D%20Language%3F.html" class="md-nav__link">
         
   
   
@@ -297,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.4%20A%20Brief%20History%20of%20Language%20Modeling%3A%20Rules%20%E2%86%92%20Statistics%20%E2%86%92%20Neural%20Nets.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.4%20A%20Brief%20History%20of%20Language%20Modeling%3A%20Rules%20%E2%86%92%20Statistics%20%E2%86%92%20Neural%20Nets.html" class="md-nav__link">
         
   
   
@@ -320,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.5%20Why%20Is%20Modeling%20Language%20So%20Difficult%3F.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.5%20Why%20Is%20Modeling%20Language%20So%20Difficult%3F.html" class="md-nav__link">
         
   
   
@@ -343,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.6%20Code%20Example%3A%20A%20Tiny%20Predictive%20Language%20Model%20%28with%20N-Grams%29.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.6%20Code%20Example%3A%20A%20Tiny%20Predictive%20Language%20Model%20%28with%20N-Grams%29.html" class="md-nav__link">
         
   
   
@@ -366,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.7%20Summary.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.7%20Summary.html" class="md-nav__link">
         
   
   
@@ -389,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.8%20Key%20Takeaways.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.8%20Key%20Takeaways.html" class="md-nav__link">
         
   
   
@@ -412,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.9%20Quiz%20Exercises.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.9%20Quiz%20Exercises.html" class="md-nav__link">
         
   
   
@@ -435,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/ngrms.html" class="md-nav__link">
+      <a href="../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/ngrms.html" class="md-nav__link">
         
   
   
@@ -508,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/1%20Introduction%3A%20What%20is%20Classical%20NLP%3F.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/1%20Introduction%3A%20What%20is%20Classical%20NLP%3F.html" class="md-nav__link">
         
   
   
@@ -531,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/2%20Text%20Preprocessing%3A%20Cleaning%20Up%20Language.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/2%20Text%20Preprocessing%3A%20Cleaning%20Up%20Language.html" class="md-nav__link">
         
   
   
@@ -554,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3%20Why%20Machines%20Need%20Numbers%20for%20clarity%3F.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3%20Why%20Machines%20Need%20Numbers%20for%20clarity%3F.html" class="md-nav__link">
         
   
   
@@ -577,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3.1%20The%20Bag-of-Words%20%28BoW%29%20Model.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3.1%20The%20Bag-of-Words%20%28BoW%29%20Model.html" class="md-nav__link">
         
   
   
@@ -600,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3.2%20Term%20Frequency%E2%80%93Inverse%20Document%20Frequency%20%28TF-IDF%29.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3.2%20Term%20Frequency%E2%80%93Inverse%20Document%20Frequency%20%28TF-IDF%29.html" class="md-nav__link">
         
   
   
@@ -623,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/3.3%20TF-IDF%3A%20Sparse%20Vectors%20and%20High%20Dimensionality.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/3.3%20TF-IDF%3A%20Sparse%20Vectors%20and%20High%20Dimensionality.html" class="md-nav__link">
         
   
   
@@ -646,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/4%20Classical%20NLP%20Pipelines.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/4%20Classical%20NLP%20Pipelines.html" class="md-nav__link">
         
   
   
@@ -669,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/5%20Limitations%20of%20Rule-Based%20and%20Statistical%20Methods.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/5%20Limitations%20of%20Rule-Based%20and%20Statistical%20Methods.html" class="md-nav__link">
         
   
   
@@ -692,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/E%3AA%20Classical%20Pipeline.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3AA%20Classical%20Pipeline.html" class="md-nav__link">
         
   
   
@@ -715,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ABoW%20with%20Scikit-learn.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ABoW%20with%20Scikit-learn.html" class="md-nav__link">
         
   
   
@@ -738,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ATF-IDF.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ATF-IDF.html" class="md-nav__link">
         
   
   
@@ -761,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%202%3A%20Classical%20NLP%20Techniques/chapter.html" class="md-nav__link">
+      <a href="../Chapter%202%3A%20Classical%20NLP%20Techniques/chapter.html" class="md-nav__link">
         
   
   
@@ -788,8 +799,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -800,11 +813,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -820,7 +833,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Chapter 3: Word Embeddings and Dense Representations
@@ -834,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/%20Code%20Example%3A%20Using%20Pretrained%20Word%20Embeddings.html" class="md-nav__link">
+      <a href="%20Code%20Example%3A%20Using%20Pretrained%20Word%20Embeddings.html" class="md-nav__link">
         
   
   
@@ -857,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.1%20Introduction%3A%20From%20Counting%20Words%20to%20Capturing%20Meaning.html" class="md-nav__link">
+      <a href="3.1%20Introduction%3A%20From%20Counting%20Words%20to%20Capturing%20Meaning.html" class="md-nav__link">
         
   
   
@@ -880,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.1%20What%20Is%20a%20Word%20Embedding%3F.html" class="md-nav__link">
+      <a href="3.2.1%20What%20Is%20a%20Word%20Embedding%3F.html" class="md-nav__link">
         
   
   
@@ -903,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.2%20Sparse%20vs.%20Dense%20Representations.html" class="md-nav__link">
+      <a href="3.2.2%20Sparse%20vs.%20Dense%20Representations.html" class="md-nav__link">
         
   
   
@@ -926,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.3%20How%20Embeddings%20Represent%20Similarity.html" class="md-nav__link">
+      <a href="3.2.3%20How%20Embeddings%20Represent%20Similarity.html" class="md-nav__link">
         
   
   
@@ -949,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.4%20The%20Shape%20of%20Meaning%3A%20Embedding%20Space.html" class="md-nav__link">
+      <a href="3.2.4%20The%20Shape%20of%20Meaning%3A%20Embedding%20Space.html" class="md-nav__link">
         
   
   
@@ -972,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.5%20A%20Glimpse%20at%20the%20Math.html" class="md-nav__link">
+      <a href="3.2.5%20A%20Glimpse%20at%20the%20Math.html" class="md-nav__link">
         
   
   
@@ -995,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.3%20How%20Embeddings%20Capture%20Meaning.html" class="md-nav__link">
+      <a href="3.3%20How%20Embeddings%20Capture%20Meaning.html" class="md-nav__link">
         
   
   
@@ -1018,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.1%20What%20Is%20Word2Vec%3F.html" class="md-nav__link">
+      <a href="3.4.1%20What%20Is%20Word2Vec%3F.html" class="md-nav__link">
         
   
   
@@ -1038,10 +1051,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.2%20CBOW%20and%20Skip-Gram%3A%20Two%20Learning%20Strategies.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.4.2 CBOW and Skip Gram: Two Learning Strategies
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="3.4.2%20CBOW%20and%20Skip-Gram%3A%20Two%20Learning%20Strategies.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1052,6 +1085,123 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#342-cbow-and-skip-gram-two-learning-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 CBOW and Skip-Gram: Two Learning Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 CBOW and Skip-Gram: Two Learning Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cbow-predict-the-word-from-the-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 CBOW: Predict the Word from the Context
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 CBOW: Predict the Word from the Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-cbow" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Characteristics of CBOW
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-gram-predict-the-context-from-the-word" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Skip-Gram: Predict the Context from the Word
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Skip-Gram: Predict the Context from the Word">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-skip-gram" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Characteristics of Skip-Gram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbow-vs-skip-gram-side-by-side-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 CBOW vs Skip-Gram: Side-by-Side Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-two-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Why Two Models?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1064,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.3%20Training%20Word2Vec%3A%20How%20the%20Model%20Learns.html" class="md-nav__link">
+      <a href="3.4.3%20Training%20Word2Vec%3A%20How%20the%20Model%20Learns.html" class="md-nav__link">
         
   
   
@@ -1087,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.4%20Negative%20Sampling%20and%20Efficiency%20Tricks.html" class="md-nav__link">
+      <a href="3.4.4%20Negative%20Sampling%20and%20Efficiency%20Tricks.html" class="md-nav__link">
         
   
   
@@ -1110,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.5%20Practical%20Example%3A%20Training%20Word2Vec%20in%20Python.html" class="md-nav__link">
+      <a href="3.4.5%20Practical%20Example%3A%20Training%20Word2Vec%20in%20Python.html" class="md-nav__link">
         
   
   
@@ -1133,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.6%20Strengths%20and%20Limitations%20of%20Word2Vec.html" class="md-nav__link">
+      <a href="3.4.6%20Strengths%20and%20Limitations%20of%20Word2Vec.html" class="md-nav__link">
         
   
   
@@ -1156,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5%20Beyond%20Word2Vec%20%E2%80%93%20The%20Evolution%20of%20Word%20Embeddings.html" class="md-nav__link">
+      <a href="3.5%20Beyond%20Word2Vec%20%E2%80%93%20The%20Evolution%20of%20Word%20Embeddings.html" class="md-nav__link">
         
   
   
@@ -1179,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.1%20Why%20Move%20Beyond%20Word2Vec%3F.html" class="md-nav__link">
+      <a href="3.5.1%20Why%20Move%20Beyond%20Word2Vec%3F.html" class="md-nav__link">
         
   
   
@@ -1202,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.2%20FastText%20%E2%80%93%20Words%20as%20Bags%20of%20Subwords.html" class="md-nav__link">
+      <a href="3.5.2%20FastText%20%E2%80%93%20Words%20as%20Bags%20of%20Subwords.html" class="md-nav__link">
         
   
   
@@ -1225,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.3%20GloVe%20%E2%80%93%20Global%20Vectors%20for%20Word%20Representation.html" class="md-nav__link">
+      <a href="3.5.3%20GloVe%20%E2%80%93%20Global%20Vectors%20for%20Word%20Representation.html" class="md-nav__link">
         
   
   
@@ -1248,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.4%20Comparing%20Word2Vec%2C%20GloVe%2C%20and%20FastText.html" class="md-nav__link">
+      <a href="3.5.4%20Comparing%20Word2Vec%2C%20GloVe%2C%20and%20FastText.html" class="md-nav__link">
         
   
   
@@ -1271,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.6%20Limitations%20of%20Word%20Embeddings%20%E2%80%94%20And%20What%20Comes%20Next.html" class="md-nav__link">
+      <a href="3.6%20Limitations%20of%20Word%20Embeddings%20%E2%80%94%20And%20What%20Comes%20Next.html" class="md-nav__link">
         
   
   
@@ -1294,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/Learning%20Objectives.html" class="md-nav__link">
+      <a href="Learning%20Objectives.html" class="md-nav__link">
         
   
   
@@ -1317,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/chapter.html" class="md-nav__link">
+      <a href="chapter.html" class="md-nav__link">
         
   
   
@@ -1390,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%203E%3A%20Introduction%20to%20Machine%20Learning%20and%20Neural%20Networks/chapter.html" class="md-nav__link">
+      <a href="../Chapter%203E%3A%20Introduction%20to%20Machine%20Learning%20and%20Neural%20Networks/chapter.html" class="md-nav__link">
         
   
   
@@ -1463,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.1%20Introduction%20%E2%80%93%20Why%20Word%20Order%20and%20Memory%20Matter.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.1%20Introduction%20%E2%80%93%20Why%20Word%20Order%20and%20Memory%20Matter.html" class="md-nav__link">
         
   
   
@@ -1486,7 +1636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.1%20The%20Need%20for%20Sequential%20Processing.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.1%20The%20Need%20for%20Sequential%20Processing.html" class="md-nav__link">
         
   
   
@@ -1509,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.2%20The%20Core%20Idea%20of%20Recurrence.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.2%20The%20Core%20Idea%20of%20Recurrence.html" class="md-nav__link">
         
   
   
@@ -1532,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.3%20Unrolling%20an%20RNN%20Over%20Time.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.3%20Unrolling%20an%20RNN%20Over%20Time.html" class="md-nav__link">
         
   
   
@@ -1555,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.4%20RNN%20in%20Practice%20%E2%80%93%20A%20Step-by-Step%20Example.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.4%20RNN%20in%20Practice%20%E2%80%93%20A%20Step-by-Step%20Example.html" class="md-nav__link">
         
   
   
@@ -1578,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.5%3A%20Strengths%20and%20Weaknesses%20of%20Vanilla%20RNNs.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.5%3A%20Strengths%20and%20Weaknesses%20of%20Vanilla%20RNNs.html" class="md-nav__link">
         
   
   
@@ -1601,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.3%20The%20Problem%20of%20Vanishing%20Gradients.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.3%20The%20Problem%20of%20Vanishing%20Gradients.html" class="md-nav__link">
         
   
   
@@ -1624,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.1%20Motivation%3A%20Why%20Vanilla%20RNNs%20Need%20Help.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.1%20Motivation%3A%20Why%20Vanilla%20RNNs%20Need%20Help.html" class="md-nav__link">
         
   
   
@@ -1647,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.2%20Inside%20the%20LSTM%20Cell.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.2%20Inside%20the%20LSTM%20Cell.html" class="md-nav__link">
         
   
   
@@ -1670,7 +1820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.3%20How%20LSTMs%20Process%20Sequences.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.3%20How%20LSTMs%20Process%20Sequences.html" class="md-nav__link">
         
   
   
@@ -1693,7 +1843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.4%20When%20and%20Why%20to%20Use%20LSTMs.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.4%20When%20and%20Why%20to%20Use%20LSTMs.html" class="md-nav__link">
         
   
   
@@ -1716,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.1%20Motivation%20for%20GRUs.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.1%20Motivation%20for%20GRUs.html" class="md-nav__link">
         
   
   
@@ -1739,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.2%20Inside%20the%20GRU%20Cell.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.2%20Inside%20the%20GRU%20Cell.html" class="md-nav__link">
         
   
   
@@ -1762,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.3%20Comparing%20GRU%20and%20LSTM.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.3%20Comparing%20GRU%20and%20LSTM.html" class="md-nav__link">
         
   
   
@@ -1785,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.4%20When%20to%20Use%20GRUs.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.4%20When%20to%20Use%20GRUs.html" class="md-nav__link">
         
   
   
@@ -1808,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.1%3A%20Language%20Generation%20with%20RNNs.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.1%3A%20Language%20Generation%20with%20RNNs.html" class="md-nav__link">
         
   
   
@@ -1831,7 +1981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.2%20Training%20a%20Recurrent%20Language%20Model.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.2%20Training%20a%20Recurrent%20Language%20Model.html" class="md-nav__link">
         
   
   
@@ -1854,7 +2004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.3%20Sampling%20and%20Generation%20During%20Inference.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.3%20Sampling%20and%20Generation%20During%20Inference.html" class="md-nav__link">
         
   
   
@@ -1877,7 +2027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.4%20Code%20Example%20%E2%80%93%20Generating%20Text%20with%20GRU.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.4%20Code%20Example%20%E2%80%93%20Generating%20Text%20with%20GRU.html" class="md-nav__link">
         
   
   
@@ -1900,7 +2050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.5%20Challenges%20and%20Limitations%20of%20RNN-based%20Generation.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.5%20Challenges%20and%20Limitations%20of%20RNN-based%20Generation.html" class="md-nav__link">
         
   
   
@@ -1923,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/llmbook/Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/RNN.html" class="md-nav__link">
+      <a href="../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/RNN.html" class="md-nav__link">
         
   
   
@@ -1964,6 +2114,113 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#342-cbow-and-skip-gram-two-learning-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 CBOW and Skip-Gram: Two Learning Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 CBOW and Skip-Gram: Two Learning Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cbow-predict-the-word-from-the-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 CBOW: Predict the Word from the Context
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 CBOW: Predict the Word from the Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-cbow" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Characteristics of CBOW
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-gram-predict-the-context-from-the-word" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Skip-Gram: Predict the Context from the Word
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Skip-Gram: Predict the Context from the Word">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-skip-gram" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Characteristics of Skip-Gram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbow-vs-skip-gram-side-by-side-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 CBOW vs Skip-Gram: Side-by-Side Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-two-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Why Two Models?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1974,8 +2231,145 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+  <h1>3.4.2 CBOW and Skip Gram: Two Learning Strategies</h1>
+
+<h2 id="342-cbow-and-skip-gram-two-learning-strategies"><strong>3.4.2 CBOW and Skip-Gram: Two Learning Strategies</strong></h2>
+<p>When we say "Word2Vec," we’re actually referring to <strong>two related models</strong>—each with a slightly different way of learning from language. Both models share the same goal: <strong>to learn word embeddings that capture meaning</strong>. But they approach that goal from opposite directions.</p>
+<p>These two strategies are:</p>
+<ul>
+<li><strong>CBOW</strong> (<em>Continuous Bag-of-Words</em>): Predict the word in the middle from the surrounding context.</li>
+<li><strong>Skip-Gram</strong>: Predict the surrounding context words from the word in the middle.</li>
+</ul>
+<p>Let’s explore each one step-by-step with examples, intuition, and diagrams (you can visualize them later using illustrations as placeholders).</p>
+<hr />
+<h3 id="cbow-predict-the-word-from-the-context">🧱 CBOW: Predict the Word from the Context</h3>
+<p>CBOW is like playing a guessing game:</p>
+<blockquote>
+<p>"Can you guess the missing word if I give you the words around it?"</p>
+</blockquote>
+<h4 id="example">📌 Example</h4>
+<p>Take the sentence:</p>
+<blockquote>
+<p>“The cat <strong>sat</strong> on the mat.”</p>
+</blockquote>
+<p>Suppose the target word is <code>"sat"</code> and we choose a <strong>window size of 2</strong>, which means we look at the 2 words before and after the target.</p>
+<p>The context becomes: <code>"The"</code>, <code>"cat"</code>, <code>"on"</code>, <code>"the"</code>
+CBOW’s task is to predict the center word: <code>"sat"</code></p>
+<p>So:</p>
+<pre><code class="language-text">Input:  [&quot;The&quot;, &quot;cat&quot;, &quot;on&quot;, &quot;the&quot;]
+Target: &quot;sat&quot;
+</code></pre>
+<p>The model processes the surrounding words and learns to predict the center word. To do this effectively, it must create vector representations of the context words that are informative enough to guess the target. This is how embeddings get learned.</p>
+<h4 id="characteristics-of-cbow">✅ Characteristics of CBOW</h4>
+<ul>
+<li><strong>Faster</strong> to train because it averages context vectors.</li>
+<li>Works well for <strong>larger corpora</strong>.</li>
+<li>Tends to smooth over rare word representations (averaging effects).</li>
+<li>Trains on more data points (every target word appears in a context window).</li>
+</ul>
+<hr />
+<p>Absolutely! Here is the corrected <strong>Skip-Gram</strong> portion of <strong>Section 3.4.2</strong>, now written clearly and accurately in book-style format:</p>
+<hr />
+<h3 id="skip-gram-predict-the-context-from-the-word">🔄 Skip-Gram: Predict the Context from the Word</h3>
+<p>If CBOW is about guessing the word in the middle, <strong>Skip-Gram flips that idea</strong> on its head. Instead of predicting the center word from its neighbors, Skip-Gram does the opposite:</p>
+<blockquote>
+<p>“Can you guess the words around me if I give you the center word?”</p>
+</blockquote>
+<p>This turns each word in the corpus into a kind of <strong>anchor point</strong>, and the model tries to learn which words are likely to appear nearby.</p>
+<hr />
+<h4 id="example_1">📌 Example</h4>
+<p>Consider the sentence:</p>
+<blockquote>
+<p>“The cat <strong>sat</strong> on the mat.”</p>
+</blockquote>
+<p>Let’s say our <strong>window size is 2</strong>. That means we look at two words on either side of the target word.</p>
+<p>Now let’s take <code>"sat"</code> as our center word.
+The Skip-Gram model will try to <strong>predict its context</strong>:</p>
+<pre><code class="language-text">Input:   &quot;sat&quot;  
+Targets: [&quot;The&quot;, &quot;cat&quot;, &quot;on&quot;, &quot;the&quot;]
+</code></pre>
+<p>The model turns this into four training pairs:</p>
+<ul>
+<li>("sat", "The")</li>
+<li>("sat", "cat")</li>
+<li>("sat", "on")</li>
+<li>("sat", "the")</li>
+</ul>
+<p>So instead of predicting one word from multiple inputs (like CBOW does), <strong>Skip-Gram predicts multiple outputs from one input word.</strong></p>
+<hr />
+<h4 id="characteristics-of-skip-gram">✅ Characteristics of Skip-Gram</h4>
+<ul>
+<li><strong>Focuses on the target word</strong> and tries to predict surrounding words.</li>
+<li>Trains on <strong>more pairs</strong>, especially useful for rare words.</li>
+<li>Tends to produce <strong>more fine-grained</strong> and <strong>informative embeddings</strong>.</li>
+<li>Typically <strong>slower to train</strong>, since it creates more training examples than CBOW.</li>
+<li>Better for <strong>smaller datasets</strong> or when you care about learning rare word behavior.</li>
+</ul>
+<hr />
+<h3 id="cbow-vs-skip-gram-side-by-side-summary">🔍 CBOW vs Skip-Gram: Side-by-Side Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>CBOW</strong></th>
+<th><strong>Skip-Gram</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prediction Task</td>
+<td>Context → Target word</td>
+<td>Target word → Context words</td>
+</tr>
+<tr>
+<td>Training Speed</td>
+<td>Faster</td>
+<td>Slower</td>
+</tr>
+<tr>
+<td>Performance on Rare Words</td>
+<td>Weaker</td>
+<td>Better</td>
+</tr>
+<tr>
+<td>Data Efficiency</td>
+<td>More efficient</td>
+<td>Needs more training examples</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Large datasets, general purpose</td>
+<td>Smaller datasets, finer detail</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="why-two-models">🧠 Why Two Models?</h3>
+<p>Both models were designed to solve the same problem—learning useful word embeddings—but in slightly different ways.
+Which one you choose depends on:</p>
+<ul>
+<li>Your <strong>dataset size</strong></li>
+<li>Whether you want to prioritize <strong>speed</strong> or <strong>detail</strong></li>
+<li>Your specific <strong>task requirements</strong></li>
+</ul>
+<p>Most modern applications use <strong>Skip-Gram</strong>, as it tends to yield <strong>richer word vectors</strong>, especially when working with fewer data.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2011,10 +2405,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/llmbook/", "features": ["navigation.sections", "content.code.copy"], "search": "/llmbook/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/llmbook/assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
