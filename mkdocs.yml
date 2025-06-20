@@ -1,0 +1,8 @@
+site_name: "From Words to Intelligence: A Complete Guide to Large Language Models"
+docs_dir: docs
+plugins:
+  - search
+  - awesome-pages
+  - mkdocs-jupyter
+theme:
+  name: material
