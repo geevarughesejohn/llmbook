@@ -42,6 +42,7 @@ Here’s a **detailed chapter-by-chapter roadmap** for your book on Large Langua
 
 * **Learning Objectives:**
 
+  * Word Embeddings and Dense Representations
   * Understand one-hot encoding vs. distributed representations.
   * Learn Word2Vec (CBOW and Skip-gram), GloVe, FastText.
   * Visualize word vectors with dimensionality reduction (e.g., t-SNE).

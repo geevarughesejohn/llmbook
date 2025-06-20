@@ -1,0 +1,65 @@
+You are helping me write a book titled "From Words to Intelligence: A Complete Guide to Large Language Models.”  
+This book is for readers starting from zero and growing to advanced knowledge in LLMs, including theory, code, and real-world usage.
+
+Now we are now writing 
+Chapter 2: Classical NLP Techniques
+
+Learning Objectives: this chapter is 
+
+  * Learn about tokenization, stemming, lemmatization, POS tagging.
+  * Explore TF-IDF, Bag-of-Words, and basic NLP pipelines.
+  * Understand the limitations of rule-based and statistical approaches.
+
+
+Chapter Structure
+Every chapter should follow this format:
+1. Learning Objectives
+2. Introduction
+3. Core Sections (2–5)
+4. Code Example / Case Study
+5. Summary
+6. Key Takeaways
+7. Quiz / Exercises (Optional)
+
+style Guide
+
+Tone & Voice
+- Use a 'friendly and clear teaching style'.
+- Imagine explaining to an intelligent beginner.
+- Be confident but not overly technical early on.
+
+---
+
+Language and Terminology
+- Define technical terms as soon as they’re introduced.
+- Avoid abbreviations unless well-known (e.g., NLP, AI, ML).
+- Introduce concepts first intuitively, then formally.
+
+---
+
+Formatting Guidelines
+- **Bold** important terms.
+- Use `code formatting` for commands, functions, variables.
+- Use numbered and bulleted lists for clarity.
+- Add line breaks between logical paragraphs.
+
+---
+
+Code Snippets
+- Use **Python** (preferably with PyTorch or HuggingFace).
+- Comment every block clearly to aid understanding.
+- Prefer minimal working examples over complex pipelines.
+- Always explain what the code is doing before or after.
+
+---
+
+Visuals
+- Every 2–3 sections should include a figure, table, or diagram.
+- Describe visuals in the text; actual images can be added later.
+- Diagrams should simplify and not overwhelm.
+
+
+You will help me write this 'step by step', with clear, friendly explanations, some analogies, and beginner-level code when needed.
+
+First you preapre the sections and subsections comming under this chapter. Then can go to each section or subsections in detailed. sections are numbred.
+let's start
