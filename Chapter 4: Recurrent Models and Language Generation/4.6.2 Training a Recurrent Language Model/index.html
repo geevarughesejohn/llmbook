@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2132,13 +2157,13 @@
 
   <h1>4.6.2 Training a Recurrent Language Model</h1>
 
-<h2 id="462-training-a-recurrent-language-model"><strong>4.6.2 Training a Recurrent Language Model</strong></h2>
+<h2 id="462-training-a-recurrent-language-model"><strong>4.6.2 Training a Recurrent Language Model</strong><a class="headerlink" href="#462-training-a-recurrent-language-model" title="Permanent link">&para;</a></h2>
 <p><em>Teaching machines to predict the next word</em></p>
 <p>Now that we understand the goal of language generation—predicting the next word in a sequence—let’s explore how we train a model to do exactly that.</p>
 <p>Training a recurrent language model is like teaching a child to write by filling in blanks: show them a sentence, hide the last word, and ask them to guess what comes next. If they're wrong, they adjust based on feedback. Over time, they get better at spotting patterns.</p>
 <p>Machines learn the same way—just faster, and with lots of data.</p>
 <hr />
-<h3 id="step-1-preparing-the-dataset">🧾 Step 1: Preparing the Dataset</h3>
+<h3 id="step-1-preparing-the-dataset">🧾 Step 1: Preparing the Dataset<a class="headerlink" href="#step-1-preparing-the-dataset" title="Permanent link">&para;</a></h3>
 <p>To train a language model, we first need a <strong>text corpus</strong>—a large collection of sentences. This is broken into sequences like so:</p>
 <blockquote>
 <p>Input: “The cat sat on the”
@@ -2152,21 +2177,21 @@ Target: “cat sat on the mat”</p>
 <p>This way, the model learns to <strong>predict the next word</strong> at every time step.</p>
 <p>We also tokenize the text into integers or word embeddings (like Word2Vec or GloVe) before feeding it into the model.</p>
 <hr />
-<h3 id="step-2-feeding-sequences-into-the-model">🔁 Step 2: Feeding Sequences into the Model</h3>
+<h3 id="step-2-feeding-sequences-into-the-model">🔁 Step 2: Feeding Sequences into the Model<a class="headerlink" href="#step-2-feeding-sequences-into-the-model" title="Permanent link">&para;</a></h3>
 <p>We pass the input sequence word by word through the recurrent model—RNN, GRU, or LSTM. At each time step $t$, the model computes a hidden state $h_t$, which captures all the information seen so far.</p>
 <p>Then it uses this hidden state to predict a probability distribution over the next word using a <strong>softmax layer</strong>.</p>
 <p>$$
 P(w_t | w_1, ..., w_{t-1}) = \text{softmax}(W \cdot h_t + b)
 $$</p>
 <hr />
-<h3 id="step-3-comparing-predictions-with-reality">🎯 Step 3: Comparing Predictions with Reality</h3>
+<h3 id="step-3-comparing-predictions-with-reality">🎯 Step 3: Comparing Predictions with Reality<a class="headerlink" href="#step-3-comparing-predictions-with-reality" title="Permanent link">&para;</a></h3>
 <p>The model's prediction is compared to the <strong>actual next word</strong> using a <strong>loss function</strong>—typically <strong>categorical cross-entropy</strong>, which penalizes incorrect guesses and rewards correct ones.</p>
 <p>$$
 \mathcal{L} = -\sum_{t} \log P_{\text{model}}(w_t)
 $$</p>
 <p>If the predicted word was "dog" but the correct word was "mat", the loss will be high. The model then adjusts its weights using <strong>backpropagation through time (BPTT)</strong>.</p>
 <hr />
-<h3 id="teacher-forcing-helping-the-model-learn-faster">📚 Teacher Forcing: Helping the Model Learn Faster</h3>
+<h3 id="teacher-forcing-helping-the-model-learn-faster">📚 Teacher Forcing: Helping the Model Learn Faster<a class="headerlink" href="#teacher-forcing-helping-the-model-learn-faster" title="Permanent link">&para;</a></h3>
 <p>One trick used during training is called <strong>teacher forcing</strong>.</p>
 <p>Instead of feeding the model’s <strong>own prediction</strong> as the next input (which may be wrong), we feed the <strong>actual word</strong> from the training data.</p>
 <blockquote>
@@ -2184,7 +2209,7 @@ True target: “cat sat on”</p>
 <p><strong>Drawback:</strong>
 At inference time, teacher forcing isn’t available—you have to generate word-by-word using the model’s <strong>own</strong> predictions. This mismatch can sometimes hurt performance.</p>
 <hr />
-<h3 id="summary">🧩 Summary</h3>
+<h3 id="summary">🧩 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Training a language model involves feeding sequences and predicting the next word at each step.</li>
 <li>Cross-entropy loss is used to measure how well the model matches the actual text.</li>
@@ -2240,7 +2265,7 @@ At inference time, teacher forcing isn’t available—you have to generate word
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

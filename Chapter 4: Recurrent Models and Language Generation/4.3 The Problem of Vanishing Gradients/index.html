@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2132,7 +2157,7 @@
 
   <h1>4.3 The Problem of Vanishing Gradients</h1>
 
-<h2 id="43-the-problem-of-vanishing-gradients"><strong>4.3 The Problem of Vanishing Gradients</strong></h2>
+<h2 id="43-the-problem-of-vanishing-gradients"><strong>4.3 The Problem of Vanishing Gradients</strong><a class="headerlink" href="#43-the-problem-of-vanishing-gradients" title="Permanent link">&para;</a></h2>
 <p>At this point, we've seen how Recurrent Neural Networks (RNNs) can pass information from one step to the next through a hidden state. This hidden state acts like a memory that gets updated every time a new word is read.</p>
 <p>But here’s the problem: RNNs have a <em>short memory</em>. They might do well on short phrases like:</p>
 <blockquote>
@@ -2145,12 +2170,12 @@
 <p>The model might completely forget about <em>“the cat”</em> by the time it reaches <em>“sat on the mat”</em>.</p>
 <p>Why does this happen? To understand that, we need to take a peek under the hood and talk about one of the most important training challenges in deep learning: the <strong>vanishing gradient problem</strong>.</p>
 <hr />
-<h3 id="a-quick-refresher-what-is-a-gradient">🧠 A Quick Refresher: What Is a Gradient?</h3>
+<h3 id="a-quick-refresher-what-is-a-gradient">🧠 A Quick Refresher: What Is a Gradient?<a class="headerlink" href="#a-quick-refresher-what-is-a-gradient" title="Permanent link">&para;</a></h3>
 <p>When training a neural network, we use a method called <strong>backpropagation</strong> to update its weights. This involves calculating a gradient—a kind of signal that tells each weight how much it contributed to the error, and how it should change to improve.</p>
 <p>If the gradient is large, the weight gets updated significantly. If it’s small, the update is tiny.</p>
 <p>This works great in short networks. But in deep networks—or in <strong>long unrolled RNNs</strong>—a single mistake at the end of the sequence has to travel <strong>backward</strong> through many time steps to adjust earlier weights.</p>
 <hr />
-<h3 id="the-vanishing-gradient-problem">🧯 The Vanishing Gradient Problem</h3>
+<h3 id="the-vanishing-gradient-problem">🧯 The Vanishing Gradient Problem<a class="headerlink" href="#the-vanishing-gradient-problem" title="Permanent link">&para;</a></h3>
 <p>As this gradient flows backward through each step of the RNN, it often gets multiplied by small numbers (less than 1). After 10 or 20 steps, the gradient becomes so small that it’s almost zero.</p>
 <blockquote>
 <p>It “vanishes.”</p>
@@ -2158,16 +2183,16 @@
 <p>This means the early parts of the sequence stop receiving useful updates during training. The model can’t “learn” to remember what happened a long time ago.</p>
 <p>Imagine trying to pass a message down a line of 50 people by whispering it ear to ear. By the time it reaches the end, the message is barely recognizable. That’s what happens to the gradient during backpropagation through time.</p>
 <hr />
-<h3 id="the-exploding-gradient-problem">💥 The Exploding Gradient Problem</h3>
+<h3 id="the-exploding-gradient-problem">💥 The Exploding Gradient Problem<a class="headerlink" href="#the-exploding-gradient-problem" title="Permanent link">&para;</a></h3>
 <p>There's a twin problem called the <strong>exploding gradient</strong>—when the gradient becomes too large instead of too small. This causes unstable updates and can crash the training.</p>
 <p>While exploding gradients can be controlled using techniques like <strong>gradient clipping</strong>, vanishing gradients are harder to fix.</p>
 <hr />
-<h3 id="why-vanilla-rnns-struggle">😕 Why Vanilla RNNs Struggle</h3>
+<h3 id="why-vanilla-rnns-struggle">😕 Why Vanilla RNNs Struggle<a class="headerlink" href="#why-vanilla-rnns-struggle" title="Permanent link">&para;</a></h3>
 <p>The recurrence formula of RNNs uses a <strong>nonlinear activation function</strong> like <code>tanh</code> or <code>sigmoid</code>. These functions squash outputs into a limited range, which contributes to shrinking gradients over time.</p>
 <p>So while RNNs can theoretically model long-term dependencies, in practice, they <strong>rarely</strong> do unless the sequence is very short or the pattern is very strong.</p>
 <p>This limitation sparked a breakthrough in neural network design—architectures that could <strong>learn to remember</strong> more effectively, by controlling what to store and what to forget.</p>
 <hr />
-<h3 id="enter-lstm-and-gru">💡 Enter LSTM and GRU</h3>
+<h3 id="enter-lstm-and-gru">💡 Enter LSTM and GRU<a class="headerlink" href="#enter-lstm-and-gru" title="Permanent link">&para;</a></h3>
 <p>To overcome these problems, researchers developed new types of RNN cells—most notably the <strong>Long Short-Term Memory (LSTM)</strong> and the <strong>Gated Recurrent Unit (GRU)</strong>.</p>
 <p>These models introduced <strong>gates</strong> that decide:</p>
 <ul>
@@ -2225,7 +2250,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

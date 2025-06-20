@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2096,12 +2121,12 @@
 
   <h1>4.2.5: Strengths and Weaknesses of Vanilla RNNs</h1>
 
-<h2 id="425-strengths-and-weaknesses-of-vanilla-rnns"><strong>4.2.5 Strengths and Weaknesses of Vanilla RNNs</strong></h2>
+<h2 id="425-strengths-and-weaknesses-of-vanilla-rnns"><strong>4.2.5 Strengths and Weaknesses of Vanilla RNNs</strong><a class="headerlink" href="#425-strengths-and-weaknesses-of-vanilla-rnns" title="Permanent link">&para;</a></h2>
 <p>By now, you’ve seen how Recurrent Neural Networks (RNNs) can read a sentence one word at a time, carry memory from word to word, and gradually build a hidden representation of the entire sequence. That’s already a huge improvement over traditional bag-of-words models or even Word2Vec embeddings, which ignore the order and structure of a sentence.</p>
 <p>So what are RNNs really good at? And where do they fall short?</p>
 <p>Let’s break it down.</p>
 <hr />
-<h3 id="strengths-of-vanilla-rnns">✅ <strong>Strengths of Vanilla RNNs</strong></h3>
+<h3 id="strengths-of-vanilla-rnns">✅ <strong>Strengths of Vanilla RNNs</strong><a class="headerlink" href="#strengths-of-vanilla-rnns" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Handles Sequences of Variable Length</strong></li>
 </ol>
@@ -2115,7 +2140,7 @@
 </ol>
 <p>Since RNNs use the same weights at every time step, they’re efficient and generalizable. The same logic that processes word #1 can process word #50.</p>
 <hr />
-<h3 id="weaknesses-of-vanilla-rnns">❌ <strong>Weaknesses of Vanilla RNNs</strong></h3>
+<h3 id="weaknesses-of-vanilla-rnns">❌ <strong>Weaknesses of Vanilla RNNs</strong><a class="headerlink" href="#weaknesses-of-vanilla-rnns" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Short-Term Memory Only</strong></li>
 </ol>
@@ -2140,7 +2165,7 @@
 </ol>
 <p>Vanilla RNNs can be unstable during training. Choosing the right learning rate, weight initialization, and sequence length often requires trial and error.</p>
 <hr />
-<h3 id="summary-rnns-are-a-good-start-but-not-enough">🔁 Summary: RNNs Are a Good Start, But Not Enough</h3>
+<h3 id="summary-rnns-are-a-good-start-but-not-enough">🔁 Summary: RNNs Are a Good Start, But Not Enough<a class="headerlink" href="#summary-rnns-are-a-good-start-but-not-enough" title="Permanent link">&para;</a></h3>
 <p>Vanilla RNNs were revolutionary when they first appeared. They introduced the key idea that <strong>language is sequential</strong> and that <strong>memory matters</strong>.</p>
 <p>But as we push toward modeling <strong>longer sequences</strong> and more <strong>complex dependencies</strong>, RNNs begin to break down.</p>
 <p>That’s why researchers created improved versions of RNNs: the <strong>Long Short-Term Memory (LSTM)</strong> and the <strong>Gated Recurrent Unit (GRU)</strong>. These models were designed specifically to fix the memory limitations of vanilla RNNs, while keeping the core idea of sequence modeling intact.</p>
@@ -2192,7 +2217,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

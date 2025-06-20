@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2168,12 +2193,12 @@
 
   <h1>4.5.2 Inside the GRU Cell</h1>
 
-<h2 id="452-inside-the-gru-cell"><strong>4.5.2 Inside the GRU Cell</strong></h2>
+<h2 id="452-inside-the-gru-cell"><strong>4.5.2 Inside the GRU Cell</strong><a class="headerlink" href="#452-inside-the-gru-cell" title="Permanent link">&para;</a></h2>
 <p><em>A simpler, elegant memory design</em></p>
 <p>If the LSTM is a memory system with three levers and two compartments, the <strong>Gated Recurrent Unit (GRU)</strong> simplifies everything down to just <strong>two levers</strong> and <strong>a single memory track</strong>. And yet, it still manages to remember and forget, learn and adapt—often just as well.</p>
 <p>Let’s look inside a GRU cell to understand how this streamlined mechanism works.</p>
 <hr />
-<h3 id="one-memory-track-hidden-state-only">🧠 One Memory Track: Hidden State Only</h3>
+<h3 id="one-memory-track-hidden-state-only">🧠 One Memory Track: Hidden State Only<a class="headerlink" href="#one-memory-track-hidden-state-only" title="Permanent link">&para;</a></h3>
 <p>Unlike the LSTM, the GRU has <strong>no separate cell state</strong>. Instead, it keeps everything it needs in a single <strong>hidden state</strong> $h_t$. This hidden state is updated at each time step using two gates:</p>
 <ul>
 <li>The <strong>Update Gate</strong> $z_t$</li>
@@ -2181,7 +2206,7 @@
 </ul>
 <p>Let’s break these down.</p>
 <hr />
-<h3 id="update-gate-z_t-control-what-to-keep">🔄 Update Gate $z_t$: Control What to Keep</h3>
+<h3 id="update-gate-z_t-control-what-to-keep">🔄 Update Gate $z_t$: Control What to Keep<a class="headerlink" href="#update-gate-z_t-control-what-to-keep" title="Permanent link">&para;</a></h3>
 <p>The <strong>update gate</strong> determines how much of the <strong>past</strong> should be kept around and how much should be replaced by the <strong>new</strong> information.</p>
 <p>The formula is:</p>
 <p>$$
@@ -2197,14 +2222,14 @@ $$</p>
 If $z_t \approx 1$, we mostly keep the past memory.
 If $z_t \approx 0$, we replace it with new information.</p>
 <hr />
-<h3 id="reset-gate-r_t-control-how-to-mix-the-past">♻️ Reset Gate $r_t$: Control How to Mix the Past</h3>
+<h3 id="reset-gate-r_t-control-how-to-mix-the-past">♻️ Reset Gate $r_t$: Control How to Mix the Past<a class="headerlink" href="#reset-gate-r_t-control-how-to-mix-the-past" title="Permanent link">&para;</a></h3>
 <p>The <strong>reset gate</strong> decides how much of the past hidden state should be considered when generating new information.</p>
 <p>$$
 r_t = \sigma(W_r x_t + U_r h_{t-1} + b_r)
 $$</p>
 <p>This gate lets the GRU <strong>"forget"</strong> parts of the previous state when appropriate—especially helpful in dealing with noise or irrelevant past input.</p>
 <hr />
-<h3 id="candidate-hidden-state-tildeh_t-the-new-memory">⚙️ Candidate Hidden State $\tilde{h}_t$: The New Memory</h3>
+<h3 id="candidate-hidden-state-tildeh_t-the-new-memory">⚙️ Candidate Hidden State $\tilde{h}_t$: The New Memory<a class="headerlink" href="#candidate-hidden-state-tildeh_t-the-new-memory" title="Permanent link">&para;</a></h3>
 <p>Once the gates are computed, the GRU calculates a <strong>candidate</strong> hidden state $\tilde{h}_t$ based on the current input and a <strong>modified</strong> past:</p>
 <p>$$
 \tilde{h}<em>t = \tanh(W_h x_t + U_h (r_t \odot h</em>{t-1}) + b_h)
@@ -2214,7 +2239,7 @@ $$</p>
 <li>$\tanh$: ensures the output values stay in a manageable range</li>
 </ul>
 <hr />
-<h3 id="final-step-update-the-hidden-state-h_t">🧾 Final Step: Update the Hidden State $h_t$</h3>
+<h3 id="final-step-update-the-hidden-state-h_t">🧾 Final Step: Update the Hidden State $h_t$<a class="headerlink" href="#final-step-update-the-hidden-state-h_t" title="Permanent link">&para;</a></h3>
 <p>The final hidden state is computed by <strong>interpolating</strong> between the old and new memory using the update gate:</p>
 <p>$$
 h_t = (1 - z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t
@@ -2226,7 +2251,7 @@ $$</p>
 </ul>
 <p>This formula is elegant: it’s just a <strong>weighted average</strong> of the past and present.</p>
 <hr />
-<h3 id="analogy-thoughtful-updating">📚 Analogy: Thoughtful Updating</h3>
+<h3 id="analogy-thoughtful-updating">📚 Analogy: Thoughtful Updating<a class="headerlink" href="#analogy-thoughtful-updating" title="Permanent link">&para;</a></h3>
 <p>Imagine you're editing a live document:</p>
 <ul>
 <li>The <strong>reset gate</strong> decides how much of the earlier draft to look at.</li>
@@ -2234,7 +2259,7 @@ $$</p>
 </ul>
 <p>In some sentences, you only tweak a few words (low update). In others, you rewrite everything (high update). The GRU behaves similarly.</p>
 <hr />
-<h3 id="summary-of-gru-flow">🔁 Summary of GRU Flow</h3>
+<h3 id="summary-of-gru-flow">🔁 Summary of GRU Flow<a class="headerlink" href="#summary-of-gru-flow" title="Permanent link">&para;</a></h3>
 <p>Here’s a quick recap of the GRU’s internal steps:</p>
 <ol>
 <li>Compute <strong>update</strong> and <strong>reset</strong> gates from input and past state.</li>
@@ -2292,7 +2317,7 @@ $$</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

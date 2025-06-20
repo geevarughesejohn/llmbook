@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2282,16 +2307,16 @@
 
   <h1>4.4.4 When and Why to Use LSTMs</h1>
 
-<h2 id="444-when-and-why-to-use-lstms"><strong>4.4.4 When and Why to Use LSTMs</strong></h2>
+<h2 id="444-when-and-why-to-use-lstms"><strong>4.4.4 When and Why to Use LSTMs</strong><a class="headerlink" href="#444-when-and-why-to-use-lstms" title="Permanent link">&para;</a></h2>
 <p>By now, you’ve seen how LSTMs fix a fundamental weakness in standard RNNs: memory loss. With their ability to remember what matters and forget what doesn’t, LSTMs offer a robust tool for working with sequential data like language, time series, or audio.</p>
 <p>But when should you actually use them? What kinds of problems are LSTMs good at solving? And what trade-offs should you be aware of?</p>
 <p>Let’s explore.</p>
 <hr />
-<h3 id="when-lstms-are-a-great-choice">✅ <strong>When LSTMs Are a Great Choice</strong></h3>
+<h3 id="when-lstms-are-a-great-choice">✅ <strong>When LSTMs Are a Great Choice</strong><a class="headerlink" href="#when-lstms-are-a-great-choice" title="Permanent link">&para;</a></h3>
 <p>LSTMs are especially useful when your task involves <strong>long-term dependencies</strong>—where understanding something early in the sequence is crucial to interpreting what happens later.</p>
 <p>Here are some classic scenarios where LSTMs work well:</p>
 <hr />
-<h4 id="language-modeling-text-generation">🔤 <strong>Language Modeling &amp; Text Generation</strong></h4>
+<h4 id="language-modeling-text-generation">🔤 <strong>Language Modeling &amp; Text Generation</strong><a class="headerlink" href="#language-modeling-text-generation" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Predicting the next word in a sentence (like autocomplete)</li>
 <li>Generating new text in the style of Shakespeare, code, or recipes</li>
@@ -2303,14 +2328,14 @@ Input: “Once upon a time, there was a…”
 Output: “princess who lived in a faraway castle.”</p>
 </blockquote>
 <hr />
-<h4 id="machine-translation">🌐 <strong>Machine Translation</strong></h4>
+<h4 id="machine-translation">🌐 <strong>Machine Translation</strong><a class="headerlink" href="#machine-translation" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Translating a sentence from English to French, for example</li>
 <li>The LSTM reads the input sentence into a memory, then generates the output word-by-word</li>
 <li>Works well with <strong>encoder-decoder</strong> architectures (we’ll see more of this later)</li>
 </ul>
 <hr />
-<h4 id="sentiment-analysis">😃 <strong>Sentiment Analysis</strong></h4>
+<h4 id="sentiment-analysis">😃 <strong>Sentiment Analysis</strong><a class="headerlink" href="#sentiment-analysis" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Classifying whether a review is positive or negative</li>
 <li>LSTMs can capture important cues like:</li>
@@ -2322,36 +2347,36 @@ vs.
 <p>Notice how the second part can soften or reverse sentiment. LSTMs help catch this.</p>
 </blockquote>
 <hr />
-<h4 id="speech-recognition-audio-processing">🔊 <strong>Speech Recognition &amp; Audio Processing</strong></h4>
+<h4 id="speech-recognition-audio-processing">🔊 <strong>Speech Recognition &amp; Audio Processing</strong><a class="headerlink" href="#speech-recognition-audio-processing" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Audio is a natural sequence, just like text</li>
 <li>LSTMs can map audio features to transcriptions over time</li>
 </ul>
 <hr />
-<h4 id="time-series-forecasting">📉 <strong>Time-Series Forecasting</strong></h4>
+<h4 id="time-series-forecasting">📉 <strong>Time-Series Forecasting</strong><a class="headerlink" href="#time-series-forecasting" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Stock prices, weather data, sensor streams</li>
 <li>Predicting the next value given historical trends</li>
 <li>LSTMs can learn cyclical patterns and anomalies over time</li>
 </ul>
 <hr />
-<h3 id="where-lstms-fall-short">❌ <strong>Where LSTMs Fall Short</strong></h3>
+<h3 id="where-lstms-fall-short">❌ <strong>Where LSTMs Fall Short</strong><a class="headerlink" href="#where-lstms-fall-short" title="Permanent link">&para;</a></h3>
 <p>Despite their strengths, LSTMs aren’t perfect. Here are some limitations you should keep in mind:</p>
 <hr />
-<h4 id="slow-training-and-inference">🐢 <strong>Slow Training and Inference</strong></h4>
+<h4 id="slow-training-and-inference">🐢 <strong>Slow Training and Inference</strong><a class="headerlink" href="#slow-training-and-inference" title="Permanent link">&para;</a></h4>
 <p>LSTMs process sequences <strong>step by step</strong>. That means they can’t be easily parallelized like Transformers. On long texts, this can become slow.</p>
 <hr />
-<h4 id="lots-of-parameters">🧮 <strong>Lots of Parameters</strong></h4>
+<h4 id="lots-of-parameters">🧮 <strong>Lots of Parameters</strong><a class="headerlink" href="#lots-of-parameters" title="Permanent link">&para;</a></h4>
 <p>Each LSTM cell has multiple weight matrices (for each gate), so models can become heavy and take longer to converge.</p>
 <hr />
-<h4 id="still-not-truly-contextual">🧠 <strong>Still Not Truly Contextual</strong></h4>
+<h4 id="still-not-truly-contextual">🧠 <strong>Still Not Truly Contextual</strong><a class="headerlink" href="#still-not-truly-contextual" title="Permanent link">&para;</a></h4>
 <p>While LSTMs carry memory, the same word in different contexts often leads to <strong>similar representations</strong>. They're <strong>better than Word2Vec</strong>, but still limited in how deeply they understand nuanced meaning.</p>
 <blockquote>
 <p>Example:
 “bank” in <em>river bank</em> vs. <em>savings bank</em> — LSTM might still struggle here unless trained extensively.</p>
 </blockquote>
 <hr />
-<h3 id="lstm-vs-other-models">🆚 <strong>LSTM vs. Other Models</strong></h3>
+<h3 id="lstm-vs-other-models">🆚 <strong>LSTM vs. Other Models</strong><a class="headerlink" href="#lstm-vs-other-models" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2394,7 +2419,7 @@ vs.
 </tbody>
 </table>
 <hr />
-<h3 id="summary">🧩 Summary</h3>
+<h3 id="summary">🧩 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <p>LSTMs are a powerful tool when:</p>
 <ul>
 <li>Sequence matters</li>
@@ -2452,7 +2477,7 @@ vs.
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

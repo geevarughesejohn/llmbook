@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -795,15 +805,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1453,15 +1468,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1521,15 +1541,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2150,7 +2175,7 @@
 
   <h1>3.5.3 GloVe – Global Vectors for Word Representation</h1>
 
-<h2 id="353-glove-global-vectors-for-word-representation"><strong>3.5.3 GloVe – Global Vectors for Word Representation</strong></h2>
+<h2 id="353-glove-global-vectors-for-word-representation"><strong>3.5.3 GloVe – Global Vectors for Word Representation</strong><a class="headerlink" href="#353-glove-global-vectors-for-word-representation" title="Permanent link">&para;</a></h2>
 <p>While Word2Vec and FastText focus on <strong>local context windows</strong>—predicting words from nearby neighbors—another school of thought asked:</p>
 <blockquote>
 <p>“What if we looked at the <strong>big picture</strong>? What if we used global statistics of how words co-occur in an entire corpus?”</p>
@@ -2162,7 +2187,7 @@
 </ul>
 <p>Let’s see how it works—and why it became another major success in the evolution of NLP.</p>
 <hr />
-<h3 id="the-core-idea">📦 The Core Idea</h3>
+<h3 id="the-core-idea">📦 The Core Idea<a class="headerlink" href="#the-core-idea" title="Permanent link">&para;</a></h3>
 <p>At its heart, GloVe builds on a simple intuition:</p>
 <blockquote>
 <p>“Words that appear in similar <strong>global</strong> contexts should have similar vector representations.”</p>
@@ -2174,7 +2199,7 @@
 </ul>
 <p>From this matrix, it learns word vectors that try to <strong>preserve the ratios</strong> of co-occurrence probabilities.</p>
 <hr />
-<h3 id="a-bit-more-formally">🔢 A Bit More Formally</h3>
+<h3 id="a-bit-more-formally">🔢 A Bit More Formally<a class="headerlink" href="#a-bit-more-formally" title="Permanent link">&para;</a></h3>
 <p>Let’s say the word <strong>“ice”</strong> co-occurs often with <strong>“cold”</strong> and rarely with <strong>“steam”</strong>. Meanwhile, <strong>“fire”</strong> co-occurs more with <strong>“steam”</strong> and less with <strong>“cold.”</strong></p>
 <p>GloVe doesn’t just count these occurrences—it looks at their <strong>ratios</strong>:</p>
 <p>$$
@@ -2187,7 +2212,7 @@ $$</p>
 </ul>
 <p>The model is trained by minimizing a <strong>weighted least squares loss</strong> over all word pairs.</p>
 <hr />
-<h3 id="why-glove-works-well">📊 Why GloVe Works Well</h3>
+<h3 id="why-glove-works-well">📊 Why GloVe Works Well<a class="headerlink" href="#why-glove-works-well" title="Permanent link">&para;</a></h3>
 <p>Here’s what makes GloVe unique:</p>
 <table>
 <thead>
@@ -2212,27 +2237,30 @@ $$</p>
 </tbody>
 </table>
 <p>In fact, GloVe is famous for producing <strong>very clean vector spaces</strong>, where analogies like:</p>
-<pre><code class="language-text">king - man + woman ≈ queen
-</code></pre>
+<div class="codehilite"><pre><span></span><code>king - man + woman ≈ queen
+</code></pre></div>
+
 <p>emerge even more clearly than in Word2Vec.</p>
 <hr />
-<h3 id="using-pretrained-glove-vectors-in-python">🛠️ Using Pretrained GloVe Vectors in Python</h3>
+<h3 id="using-pretrained-glove-vectors-in-python">🛠️ Using Pretrained GloVe Vectors in Python<a class="headerlink" href="#using-pretrained-glove-vectors-in-python" title="Permanent link">&para;</a></h3>
 <p>GloVe is often used with <strong>pretrained embeddings</strong>, such as the 100-dimensional vectors trained on Wikipedia and Gigaword.</p>
 <p>Let’s see how to load and use them:</p>
-<pre><code class="language-python">import gensim.downloader as api
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">gensim.downloader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">api</span>
 
-# Load GloVe vectors (alternative: load from a local .txt file)
-glove_model = api.load(&quot;glove-wiki-gigaword-100&quot;)
+<span class="c1"># Load GloVe vectors (alternative: load from a local .txt file)</span>
+<span class="n">glove_model</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;glove-wiki-gigaword-100&quot;</span><span class="p">)</span>
 
-# Find most similar words to 'king'
-print(glove_model.most_similar(&quot;king&quot;))
-</code></pre>
+<span class="c1"># Find most similar words to &#39;king&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">glove_model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s2">&quot;king&quot;</span><span class="p">))</span>
+</code></pre></div>
+
 <p>You can also do vector math:</p>
-<pre><code class="language-python">result = glove_model.most_similar(positive=[&quot;woman&quot;, &quot;king&quot;], negative=[&quot;man&quot;])
-print(result[0])  # likely &quot;queen&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">glove_model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;woman&quot;</span><span class="p">,</span> <span class="s2">&quot;king&quot;</span><span class="p">],</span> <span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;man&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># likely &quot;queen&quot;</span>
+</code></pre></div>
+
 <hr />
-<h3 id="when-to-use-glove">🤔 When to Use GloVe?</h3>
+<h3 id="when-to-use-glove">🤔 When to Use GloVe?<a class="headerlink" href="#when-to-use-glove" title="Permanent link">&para;</a></h3>
 <p>GloVe is great when:</p>
 <ul>
 <li>You want <strong>ready-to-use embeddings</strong> trained on large corpora</li>
@@ -2246,7 +2274,7 @@ print(result[0])  # likely &quot;queen&quot;
 <li>It doesn’t learn from task-specific data—it’s <strong>static</strong></li>
 </ul>
 <hr />
-<h3 id="wrap-up">🧠 Wrap-up</h3>
+<h3 id="wrap-up">🧠 Wrap-up<a class="headerlink" href="#wrap-up" title="Permanent link">&para;</a></h3>
 <p>GloVe showed that you don’t need to use deep neural networks to learn good embeddings—sometimes, <strong>word counts + smart math</strong> can go a long way.</p>
 <p>Still, like Word2Vec and FastText, GloVe is a <strong>static embedding method</strong>. No matter where or how a word appears, it gets the same vector.</p>
 <p>In the next section, we’ll compare these three approaches side-by-side.</p>
@@ -2298,7 +2326,7 @@ print(result[0])  # likely &quot;queen&quot;
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

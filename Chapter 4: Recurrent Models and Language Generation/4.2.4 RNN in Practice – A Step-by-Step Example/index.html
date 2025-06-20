@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2132,10 +2157,10 @@
 
   <h1>4.2.4 RNN in Practice – A Step by Step Example</h1>
 
-<h2 id="424-rnn-in-practice-a-step-by-step-example"><strong>4.2.4 RNN in Practice – A Step-by-Step Example</strong></h2>
+<h2 id="424-rnn-in-practice-a-step-by-step-example"><strong>4.2.4 RNN in Practice – A Step-by-Step Example</strong><a class="headerlink" href="#424-rnn-in-practice-a-step-by-step-example" title="Permanent link">&para;</a></h2>
 <p>Let’s now solidify everything we’ve learned so far by walking through a working example. First, we’ll see <strong>how the hidden states evolve</strong> as we process a sentence. Then, we’ll implement a <strong>basic RNN from scratch in Python</strong>, without using any deep learning frameworks.</p>
 <hr />
-<h3 id="example-i-love-cats">📚 Example: “I love cats”</h3>
+<h3 id="example-i-love-cats">📚 Example: “I love cats”<a class="headerlink" href="#example-i-love-cats" title="Permanent link">&para;</a></h3>
 <p>We’ll process the sentence “I love cats” using an RNN.</p>
 <p>Assume the following:</p>
 <ul>
@@ -2152,7 +2177,7 @@
 <li>Hidden size = 2 (we’ll keep this small for simplicity)</li>
 </ul>
 <hr />
-<h3 id="rnn-equations">🧮 RNN Equations</h3>
+<h3 id="rnn-equations">🧮 RNN Equations<a class="headerlink" href="#rnn-equations" title="Permanent link">&para;</a></h3>
 <p>At each time step $t$, the RNN updates the hidden state using:</p>
 <p>$$
 h_t = \tanh(Wx_t + Uh_{t-1} + b)
@@ -2165,44 +2190,45 @@ $$</p>
 </ul>
 <p>We’ll initialize everything manually and walk through the computation.</p>
 <hr />
-<h3 id="python-implementation-from-scratch">💻 Python Implementation (from Scratch)</h3>
-<pre><code class="language-python">import numpy as np
+<h3 id="python-implementation-from-scratch">💻 Python Implementation (from Scratch)<a class="headerlink" href="#python-implementation-from-scratch" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-# ---- Step 1: Define the vocabulary ----
-vocab = [&quot;I&quot;, &quot;love&quot;, &quot;cats&quot;]
-word_to_ix = {word: i for i, word in enumerate(vocab)}
+<span class="c1"># ---- Step 1: Define the vocabulary ----</span>
+<span class="n">vocab</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;cats&quot;</span><span class="p">]</span>
+<span class="n">word_to_ix</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="p">)}</span>
 
-# ---- Step 2: One-hot encoding ----
-def one_hot(idx, size):
-    vec = np.zeros(size)
-    vec[idx] = 1.0
-    return vec
+<span class="c1"># ---- Step 2: One-hot encoding ----</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">one_hot</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">vec</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">vec</span>
 
-# ---- Step 3: Initialize weights and hidden state ----
-input_size = 3     # one-hot size
-hidden_size = 2    # size of the RNN memory
+<span class="c1"># ---- Step 3: Initialize weights and hidden state ----</span>
+<span class="n">input_size</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># one-hot size</span>
+<span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">2</span>    <span class="c1"># size of the RNN memory</span>
 
-# Weights (random small numbers)
-W = np.random.randn(hidden_size, input_size) * 0.1
-U = np.random.randn(hidden_size, hidden_size) * 0.1
-b = np.zeros(hidden_size)
+<span class="c1"># Weights (random small numbers)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">input_size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">)</span>
 
-# Initial hidden state
-h_prev = np.zeros(hidden_size)
+<span class="c1"># Initial hidden state</span>
+<span class="n">h_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">)</span>
 
-# ---- Step 4: Input sentence ----
-sentence = [&quot;I&quot;, &quot;love&quot;, &quot;cats&quot;]
+<span class="c1"># ---- Step 4: Input sentence ----</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;cats&quot;</span><span class="p">]</span>
 
-print(&quot;Step-by-step hidden states:\n&quot;)
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step-by-step hidden states:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-for word in sentence:
-    x = one_hot(word_to_ix[word], input_size)  # input vector
-    h_t = np.tanh(np.dot(W, x) + np.dot(U, h_prev) + b)  # RNN update
-    print(f&quot;Word: {word:5}  | Hidden state: {h_t}&quot;)
-    h_prev = h_t  # carry hidden state forward
-</code></pre>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">one_hot</span><span class="p">(</span><span class="n">word_to_ix</span><span class="p">[</span><span class="n">word</span><span class="p">],</span> <span class="n">input_size</span><span class="p">)</span>  <span class="c1"># input vector</span>
+    <span class="n">h_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">h_prev</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># RNN update</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Word: </span><span class="si">{</span><span class="n">word</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">  | Hidden state: </span><span class="si">{</span><span class="n">h_t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">h_prev</span> <span class="o">=</span> <span class="n">h_t</span>  <span class="c1"># carry hidden state forward</span>
+</code></pre></div>
+
 <hr />
-<h3 id="whats-happening">🧠 What’s Happening?</h3>
+<h3 id="whats-happening">🧠 What’s Happening?<a class="headerlink" href="#whats-happening" title="Permanent link">&para;</a></h3>
 <p>At each step:</p>
 <ul>
 <li>The RNN reads the current word vector</li>
@@ -2215,7 +2241,7 @@ for word in sentence:
 </blockquote>
 <p>If we were training a language model, the next step would be to use this hidden state to <strong>predict the next word</strong>. But even without prediction, you can see how the RNN builds memory step-by-step.</p>
 <hr />
-<h3 id="why-this-matters">🔍 Why This Matters</h3>
+<h3 id="why-this-matters">🔍 Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h3>
 <p>This kind of “manual” RNN helps demystify what’s often treated as a black box. You can see clearly how:</p>
 <ul>
 <li>Each word updates the memory</li>
@@ -2274,7 +2300,7 @@ for word in sentence:
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

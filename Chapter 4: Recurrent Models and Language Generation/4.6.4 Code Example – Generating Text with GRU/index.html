@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2150,7 +2175,7 @@
 
   <h1>4.6.4 Code Example – Generating Text with GRU</h1>
 
-<h2 id="464-code-example-generating-text-with-gru"><strong>4.6.4 Code Example – Generating Text with GRU</strong></h2>
+<h2 id="464-code-example-generating-text-with-gru"><strong>4.6.4 Code Example – Generating Text with GRU</strong><a class="headerlink" href="#464-code-example-generating-text-with-gru" title="Permanent link">&para;</a></h2>
 <p><em>A small neural storyteller in action</em></p>
 <p>Let’s put theory into practice! In this section, we’ll build a simple character-level text generator using a <strong>GRU</strong> in <strong>PyTorch</strong>. The model will be trained on a small string corpus and will learn to generate new sequences one character at a time.</p>
 <p>This example won’t create Shakespeare, but it will give you hands-on experience with:</p>
@@ -2161,100 +2186,107 @@
 <li>Generating new text at inference time</li>
 </ul>
 <hr />
-<h3 id="step-1-import-libraries-and-prepare-the-data">🔧 Step 1: Import Libraries and Prepare the Data</h3>
-<pre><code class="language-python">import torch
-import torch.nn as nn
-import torch.optim as optim
-import numpy as np
-import random
-</code></pre>
-<pre><code class="language-python"># Sample training data (you can use any text)
-text = &quot;hello world hello world&quot;
+<h3 id="step-1-import-libraries-and-prepare-the-data">🔧 Step 1: Import Libraries and Prepare the Data<a class="headerlink" href="#step-1-import-libraries-and-prepare-the-data" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</code></pre></div>
 
-# Create character vocabulary
-chars = sorted(set(text))
-char2idx = {ch: idx for idx, ch in enumerate(chars)}
-idx2char = {idx: ch for ch, idx in char2idx.items()}
+<div class="codehilite"><pre><span></span><code><span class="c1"># Sample training data (you can use any text)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;hello world hello world&quot;</span>
 
-vocab_size = len(chars)
+<span class="c1"># Create character vocabulary</span>
+<span class="n">chars</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="n">char2idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">ch</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">ch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chars</span><span class="p">)}</span>
+<span class="n">idx2char</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">char2idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
-# Convert full text into a list of indices
-data = [char2idx[c] for c in text]
+<span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
 
-# Hyperparameters
-seq_length = 5
-hidden_size = 32
-embedding_dim = 16
-lr = 0.01
-epochs = 200
-</code></pre>
+<span class="c1"># Convert full text into a list of indices</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">char2idx</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+
+<span class="c1"># Hyperparameters</span>
+<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">embedding_dim</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">200</span>
+</code></pre></div>
+
 <hr />
-<h3 id="step-2-define-the-gru-language-model">📦 Step 2: Define the GRU Language Model</h3>
-<pre><code class="language-python">class CharGRU(nn.Module):
-    def __init__(self, vocab_size, embedding_dim, hidden_size):
-        super().__init__()
-        self.embedding = nn.Embedding(vocab_size, embedding_dim)
-        self.gru = nn.GRU(embedding_dim, hidden_size, batch_first=True)
-        self.fc = nn.Linear(hidden_size, vocab_size)
+<h3 id="step-2-define-the-gru-language-model">📦 Step 2: Define the GRU Language Model<a class="headerlink" href="#step-2-define-the-gru-language-model" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CharGRU</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span>
 
-    def forward(self, x, hidden=None):
-        x = self.embedding(x)
-        out, hidden = self.gru(x, hidden)
-        logits = self.fc(out)
-        return logits, hidden
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">hidden</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gru</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">hidden</span>
+</code></pre></div>
+
 <hr />
-<h3 id="step-3-prepare-batches">🔁 Step 3: Prepare Batches</h3>
-<pre><code class="language-python">def get_batch(data, seq_length):
-    # Randomly pick a start index
-    start = random.randint(0, len(data) - seq_length - 1)
-    seq = data[start : start + seq_length]
-    target = data[start + 1 : start + seq_length + 1]
-    return torch.tensor(seq).unsqueeze(0), torch.tensor(target).unsqueeze(0)
-</code></pre>
+<h3 id="step-3-prepare-batches">🔁 Step 3: Prepare Batches<a class="headerlink" href="#step-3-prepare-batches" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_batch</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">):</span>
+    <span class="c1"># Randomly pick a start index</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">seq_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="n">seq_length</span><span class="p">]</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="n">seq_length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
 <hr />
-<h3 id="step-4-train-the-model">🧠 Step 4: Train the Model</h3>
-<pre><code class="language-python">model = CharGRU(vocab_size, embedding_dim, hidden_size)
-loss_fn = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=lr)
+<h3 id="step-4-train-the-model">🧠 Step 4: Train the Model<a class="headerlink" href="#step-4-train-the-model" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">CharGRU</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
 
-for epoch in range(1, epochs + 1):
-    model.train()
-    x_batch, y_batch = get_batch(data, seq_length)
-    logits, _ = model(x_batch)
-    loss = loss_fn(logits.view(-1, vocab_size), y_batch.view(-1))
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="n">x_batch</span><span class="p">,</span> <span class="n">y_batch</span> <span class="o">=</span> <span class="n">get_batch</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">seq_length</span><span class="p">)</span>
+    <span class="n">logits</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_batch</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">),</span> <span class="n">y_batch</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 
-    if epoch % 20 == 0:
-        print(f&quot;Epoch {epoch}, Loss: {loss.item():.4f}&quot;)
-</code></pre>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
 <hr />
-<h3 id="step-5-generate-text-from-the-trained-model">✍️ Step 5: Generate Text from the Trained Model</h3>
-<pre><code class="language-python">def generate_text(model, start_text, gen_length=50, temperature=1.0):
-    model.eval()
-    input_seq = torch.tensor([char2idx[ch] for ch in start_text]).unsqueeze(0)
-    hidden = None
-    output_text = start_text
+<h3 id="step-5-generate-text-from-the-trained-model">✍️ Step 5: Generate Text from the Trained Model<a class="headerlink" href="#step-5-generate-text-from-the-trained-model" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_text</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">start_text</span><span class="p">,</span> <span class="n">gen_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">input_seq</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">char2idx</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">start_text</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">hidden</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">output_text</span> <span class="o">=</span> <span class="n">start_text</span>
 
-    for _ in range(gen_length):
-        logits, hidden = model(input_seq, hidden)
-        logits = logits[:, -1, :] / temperature  # Get last time step
-        probs = torch.softmax(logits, dim=-1)
-        next_idx = torch.multinomial(probs, num_samples=1).item()
-        next_char = idx2char[next_idx]
-        output_text += next_char
-        input_seq = torch.tensor([[next_idx]])
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gen_length</span><span class="p">):</span>
+        <span class="n">logits</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_seq</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">logits</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/</span> <span class="n">temperature</span>  <span class="c1"># Get last time step</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">next_idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">next_char</span> <span class="o">=</span> <span class="n">idx2char</span><span class="p">[</span><span class="n">next_idx</span><span class="p">]</span>
+        <span class="n">output_text</span> <span class="o">+=</span> <span class="n">next_char</span>
+        <span class="n">input_seq</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">next_idx</span><span class="p">]])</span>
 
-    return output_text
-</code></pre>
-<pre><code class="language-python"># Try generating text
-print(generate_text(model, start_text=&quot;hell&quot;, gen_length=40))
-</code></pre>
+    <span class="k">return</span> <span class="n">output_text</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Try generating text</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generate_text</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">start_text</span><span class="o">=</span><span class="s2">&quot;hell&quot;</span><span class="p">,</span> <span class="n">gen_length</span><span class="o">=</span><span class="mi">40</span><span class="p">))</span>
+</code></pre></div>
+
 <hr />
-<h3 id="summary">🧩 Summary</h3>
+<h3 id="summary">🧩 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <p>In this code example, we:</p>
 <ul>
 <li>Created a GRU-based character model using PyTorch</li>
@@ -2312,7 +2344,7 @@ print(generate_text(model, start_text=&quot;hell&quot;, gen_length=40))
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

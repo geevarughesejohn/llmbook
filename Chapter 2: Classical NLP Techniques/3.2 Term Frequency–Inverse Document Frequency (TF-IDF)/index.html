@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -474,15 +479,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -992,15 +1002,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1543,15 +1558,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1611,15 +1631,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2330,9 +2355,9 @@
 
   <h1>3.2 Term Frequency–Inverse Document Frequency (TF IDF)</h1>
 
-<h2 id="232-term-frequencyinverse-document-frequency-tf-idf"><strong>2.3.2 Term Frequency–Inverse Document Frequency (TF-IDF)</strong></h2>
+<h2 id="232-term-frequencyinverse-document-frequency-tf-idf"><strong>2.3.2 Term Frequency–Inverse Document Frequency (TF-IDF)</strong><a class="headerlink" href="#232-term-frequencyinverse-document-frequency-tf-idf" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="why-not-just-count-words">🧠 Why Not Just Count Words?</h3>
+<h3 id="why-not-just-count-words">🧠 Why Not Just Count Words?<a class="headerlink" href="#why-not-just-count-words" title="Permanent link">&para;</a></h3>
 <p>The Bag-of-Words model is a great starting point. It’s simple, fast, and often surprisingly effective. But as you saw earlier, it treats <strong>all words as equally important</strong>—and that’s a problem.</p>
 <p>Imagine you’re building a document classifier, and every document starts with the phrase:</p>
 <blockquote>
@@ -2342,7 +2367,7 @@
 <p>What we want is a way to <strong>give more importance to informative words</strong> and <strong>less importance to common, boring ones</strong>.</p>
 <p>That’s exactly what <strong>TF-IDF</strong> does.</p>
 <hr />
-<h3 id="what-is-tf-idf">📐 What is TF-IDF?</h3>
+<h3 id="what-is-tf-idf">📐 What is TF-IDF?<a class="headerlink" href="#what-is-tf-idf" title="Permanent link">&para;</a></h3>
 <p>TF-IDF stands for:</p>
 <ul>
 <li><strong>Term Frequency (TF)</strong> – How often a word appears in a document</li>
@@ -2350,15 +2375,15 @@
 </ul>
 <p>By combining these two ideas, TF-IDF gives higher scores to <strong>important words</strong> (frequent in one document, rare in others), and lower scores to <strong>common words</strong> (frequent everywhere).</p>
 <hr />
-<h3 id="lets-break-it-down">🔢 Let’s Break It Down</h3>
-<h4 id="term-frequency-tf">✅ Term Frequency (TF)</h4>
+<h3 id="lets-break-it-down">🔢 Let’s Break It Down<a class="headerlink" href="#lets-break-it-down" title="Permanent link">&para;</a></h3>
+<h4 id="term-frequency-tf">✅ Term Frequency (TF)<a class="headerlink" href="#term-frequency-tf" title="Permanent link">&para;</a></h4>
 <p>This measures how often a word shows up in a document. The more frequent, the more important—<em>within that document</em>.</p>
 <p>$$
 \text{TF}(w, d) = \frac{\text{Number of times } w \text{ appears in } d}{\text{Total number of words in } d}
 $$</p>
 <p>So if “machine” appears <strong>3 times</strong> in a 100-word document, its TF is <code>3 / 100 = 0.03</code>.</p>
 <hr />
-<h4 id="inverse-document-frequency-idf">✅ Inverse Document Frequency (IDF)</h4>
+<h4 id="inverse-document-frequency-idf">✅ Inverse Document Frequency (IDF)<a class="headerlink" href="#inverse-document-frequency-idf" title="Permanent link">&para;</a></h4>
 <p>This measures how <strong>rare</strong> a word is across all documents in the dataset. The fewer documents it appears in, the higher its score.</p>
 <p>$$
 \text{IDF}(w) = \log\left(\frac{N}{1 + n_w}\right)
@@ -2377,7 +2402,7 @@ $$</p>
 <p>🔍 Common words like “is” or “the” will have <strong>very low IDF</strong> scores. That’s the magic of TF-IDF—it automatically <strong>downweights</strong> them.</p>
 </blockquote>
 <hr />
-<h4 id="tf-idf-tf-idf">✅ TF-IDF = TF × IDF</h4>
+<h4 id="tf-idf-tf-idf">✅ TF-IDF = TF × IDF<a class="headerlink" href="#tf-idf-tf-idf" title="Permanent link">&para;</a></h4>
 <p>To get the final score for a word in a document, multiply its <strong>TF</strong> and <strong>IDF</strong>.</p>
 <p>$$
 \text{TF-IDF}(w, d) = \text{TF}(w, d) \times \text{IDF}(w)
@@ -2388,24 +2413,25 @@ $$</p>
 <li><strong>Rare in the overall dataset</strong></li>
 </ul>
 <hr />
-<h3 id="mini-example">🔍 Mini Example</h3>
+<h3 id="mini-example">🔍 Mini Example<a class="headerlink" href="#mini-example" title="Permanent link">&para;</a></h3>
 <p>Let’s use the same three documents again:</p>
-<pre><code class="language-text">Doc 1: &quot;I love NLP&quot;
+<div class="codehilite"><pre><span></span><code>Doc 1: &quot;I love NLP&quot;
 Doc 2: &quot;I love machine learning&quot;
 Doc 3: &quot;NLP is fun&quot;
-</code></pre>
-<h4 id="step-1-count-term-frequencies">Step 1: Count Term Frequencies</h4>
+</code></pre></div>
+
+<h4 id="step-1-count-term-frequencies">Step 1: Count Term Frequencies<a class="headerlink" href="#step-1-count-term-frequencies" title="Permanent link">&para;</a></h4>
 <ul>
 <li>“love” appears in Doc 1 and Doc 2: TF = 1 / 3 = 0.33 (for each)</li>
 <li>“machine” appears only in Doc 2: TF = 1 / 4 = 0.25</li>
 </ul>
-<h4 id="step-2-compute-idf">Step 2: Compute IDF</h4>
+<h4 id="step-2-compute-idf">Step 2: Compute IDF<a class="headerlink" href="#step-2-compute-idf" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Total documents = 3</li>
 <li>“love” appears in 2 docs → IDF = log(3 / (1 + 2)) = log(1) = 0.0</li>
 <li>“machine” appears in 1 doc → IDF = log(3 / (1 + 1)) = log(1.5) ≈ 0.405</li>
 </ul>
-<h4 id="step-3-final-tf-idf-scores">Step 3: Final TF-IDF Scores</h4>
+<h4 id="step-3-final-tf-idf-scores">Step 3: Final TF-IDF Scores<a class="headerlink" href="#step-3-final-tf-idf-scores" title="Permanent link">&para;</a></h4>
 <ul>
 <li>“love” → 0.33 × 0.0 = 0.0 ✅ <em>common word, downweighted</em></li>
 <li>“machine” → 0.25 × 0.405 ≈ 0.101 ✅ <em>rare, boosted</em></li>
@@ -2414,26 +2440,27 @@ Doc 3: &quot;NLP is fun&quot;
 <p>💡 So TF-IDF gives <strong>high scores to unique, meaningful words</strong>—and <strong>low scores to generic, frequent words</strong>.</p>
 </blockquote>
 <hr />
-<h3 id="code-example-tf-idf-in-python">🧑‍💻 Code Example: TF-IDF in Python</h3>
+<h3 id="code-example-tf-idf-in-python">🧑‍💻 Code Example: TF-IDF in Python<a class="headerlink" href="#code-example-tf-idf-in-python" title="Permanent link">&para;</a></h3>
 <p>Let’s implement TF-IDF using <code>TfidfVectorizer</code> from Scikit-learn:</p>
-<pre><code class="language-python">from sklearn.feature_extraction.text import TfidfVectorizer
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
-docs = [
-    &quot;I love NLP&quot;,
-    &quot;I love machine learning&quot;,
-    &quot;NLP is fun&quot;
-]
+<span class="n">docs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;I love NLP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;I love machine learning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NLP is fun&quot;</span>
+<span class="p">]</span>
 
-# Create and fit the TF-IDF vectorizer
-vectorizer = TfidfVectorizer()
-tfidf_matrix = vectorizer.fit_transform(docs)
+<span class="c1"># Create and fit the TF-IDF vectorizer</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
 
-# Convert to readable format
-import pandas as pd
-df = pd.DataFrame(tfidf_matrix.toarray(), columns=vectorizer.get_feature_names_out())
-print(df)
-</code></pre>
-<h4 id="output">📤 Output</h4>
+<span class="c1"># Convert to readable format</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="output">📤 Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2482,7 +2509,7 @@ print(df)
 <li>Words like <strong>“fun”</strong>, <strong>“machine”</strong>, and <strong>“learning”</strong> are more specific → <strong>higher scores</strong></li>
 </ul>
 <hr />
-<h3 id="comparison-with-bag-of-words">⚖️ Comparison with Bag-of-Words</h3>
+<h3 id="comparison-with-bag-of-words">⚖️ Comparison with Bag-of-Words<a class="headerlink" href="#comparison-with-bag-of-words" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2520,7 +2547,7 @@ print(df)
 </tbody>
 </table>
 <hr />
-<h3 id="when-to-use-tf-idf">🎯 When to Use TF-IDF</h3>
+<h3 id="when-to-use-tf-idf">🎯 When to Use TF-IDF<a class="headerlink" href="#when-to-use-tf-idf" title="Permanent link">&para;</a></h3>
 <p>Use TF-IDF when:</p>
 <ul>
 <li>You want to highlight unique or rare words in your text</li>
@@ -2575,7 +2602,7 @@ print(df)
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

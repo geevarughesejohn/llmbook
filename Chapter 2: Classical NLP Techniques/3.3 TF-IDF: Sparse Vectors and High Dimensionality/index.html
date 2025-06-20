@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -474,15 +479,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -965,15 +975,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1516,15 +1531,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1584,15 +1604,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2276,9 +2301,9 @@
 
   <h1>3.3 TF IDF: Sparse Vectors and High Dimensionality</h1>
 
-<h2 id="233-tf-idf-sparse-vectors-and-high-dimensionality"><strong>2.3.3 TF-IDF: Sparse Vectors and High Dimensionality</strong></h2>
+<h2 id="233-tf-idf-sparse-vectors-and-high-dimensionality"><strong>2.3.3 TF-IDF: Sparse Vectors and High Dimensionality</strong><a class="headerlink" href="#233-tf-idf-sparse-vectors-and-high-dimensionality" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="what-happens-when-vocabulary-grows">🧮 What Happens When Vocabulary Grows?</h3>
+<h3 id="what-happens-when-vocabulary-grows">🧮 What Happens When Vocabulary Grows?<a class="headerlink" href="#what-happens-when-vocabulary-grows" title="Permanent link">&para;</a></h3>
 <p>As you saw in the last section, <strong>TF-IDF</strong> turns a document into a <strong>vector</strong>—a list of numbers, each representing a word in the vocabulary.</p>
 <p>That works fine for small examples.</p>
 <p>But what happens when you apply it to <strong>real-world datasets</strong>, like a collection of news articles or customer reviews?</p>
@@ -2295,31 +2320,32 @@
 </ul>
 <p>Let’s break each down.</p>
 <hr />
-<h3 id="1-sparse-vectors-lots-of-zeros">🧊 1. Sparse Vectors: Lots of Zeros</h3>
+<h3 id="1-sparse-vectors-lots-of-zeros">🧊 1. Sparse Vectors: Lots of Zeros<a class="headerlink" href="#1-sparse-vectors-lots-of-zeros" title="Permanent link">&para;</a></h3>
 <p>Most documents use only a <strong>tiny fraction</strong> of the total vocabulary.</p>
 <p>So when you convert them into vectors, most positions will be <strong>0</strong>, indicating that the word doesn't appear in the document.</p>
-<h4 id="example">Example:</h4>
+<h4 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
 <p>Imagine a vocabulary of 10,000 words. A short review like:</p>
 <blockquote>
 <p>“Excellent service and friendly staff.”</p>
 </blockquote>
 <p>might only use <strong>5–10 of those words</strong>. So its TF-IDF vector will look like this:</p>
-<pre><code class="language-text">[0, 0, 0.72, 0, 0, 0, 0.33, 0, 0, ..., 0]
-</code></pre>
+<div class="codehilite"><pre><span></span><code>[0, 0, 0.72, 0, 0, 0, 0.33, 0, 0, ..., 0]
+</code></pre></div>
+
 <p>Out of 10,000 numbers, maybe <strong>only 10 are non-zero</strong>. That’s <strong>99.9% empty</strong>.</p>
 <blockquote>
 <p>🔍 This is called a <strong>sparse vector</strong>—mostly zeros with a few meaningful values.</p>
 </blockquote>
 <p>While this is normal in NLP, it brings <strong>computational challenges</strong>.</p>
 <hr />
-<h3 id="2-high-dimensionality-the-curse-of-too-many-features">🧱 2. High Dimensionality: The Curse of Too Many Features</h3>
+<h3 id="2-high-dimensionality-the-curse-of-too-many-features">🧱 2. High Dimensionality: The Curse of Too Many Features<a class="headerlink" href="#2-high-dimensionality-the-curse-of-too-many-features" title="Permanent link">&para;</a></h3>
 <p>Each word in the vocabulary becomes a <strong>dimension</strong> in the feature space. With a large vocabulary, your vectors can be:</p>
 <ul>
 <li>10,000 dimensions (small dataset)</li>
 <li>100,000+ dimensions (large corpus)</li>
 </ul>
 <p>This is called <strong>high dimensionality</strong>, and it leads to several problems:</p>
-<h4 id="key-issues">⚠️ Key Issues:</h4>
+<h4 id="key-issues">⚠️ Key Issues:<a class="headerlink" href="#key-issues" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Increased memory usage</strong>: Each document’s vector consumes more RAM.</li>
 <li><strong>Slower computation</strong>: Algorithms like clustering or classification become slower.</li>
@@ -2330,32 +2356,35 @@
 <p>🧠 This is often called the <strong>curse of dimensionality</strong> in machine learning.</p>
 </blockquote>
 <hr />
-<h3 id="what-can-we-do-about-it">🔧 What Can We Do About It?</h3>
-<h4 id="1-limit-the-vocabulary-size">✅ 1. Limit the Vocabulary Size</h4>
+<h3 id="what-can-we-do-about-it">🔧 What Can We Do About It?<a class="headerlink" href="#what-can-we-do-about-it" title="Permanent link">&para;</a></h3>
+<h4 id="1-limit-the-vocabulary-size">✅ 1. Limit the Vocabulary Size<a class="headerlink" href="#1-limit-the-vocabulary-size" title="Permanent link">&para;</a></h4>
 <p>Use only the top <strong>N most frequent words</strong> (e.g., 2,000 or 10,000). This reduces vector size and focuses on useful words.</p>
-<pre><code class="language-python">TfidfVectorizer(max_features=5000)
-</code></pre>
-<hr />
-<h4 id="2-remove-rare-words">✅ 2. Remove Rare Words</h4>
-<p>Words that appear in just 1–2 documents don’t help much. You can set a <strong>minimum document frequency</strong> (<code>min_df</code>) to filter them out.</p>
-<pre><code class="language-python">TfidfVectorizer(min_df=5)
-</code></pre>
-<hr />
-<h4 id="3-use-dimensionality-reduction">✅ 3. Use Dimensionality Reduction</h4>
-<p>Techniques like <strong>PCA (Principal Component Analysis)</strong> or <strong>Truncated SVD (Latent Semantic Analysis)</strong> can reduce TF-IDF vectors to fewer dimensions while preserving important patterns.</p>
-<pre><code class="language-python">from sklearn.decomposition import TruncatedSVD
+<div class="codehilite"><pre><span></span><code><span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></div>
 
-svd = TruncatedSVD(n_components=100)
-reduced = svd.fit_transform(tfidf_matrix)
-</code></pre>
+<hr />
+<h4 id="2-remove-rare-words">✅ 2. Remove Rare Words<a class="headerlink" href="#2-remove-rare-words" title="Permanent link">&para;</a></h4>
+<p>Words that appear in just 1–2 documents don’t help much. You can set a <strong>minimum document frequency</strong> (<code>min_df</code>) to filter them out.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h4 id="3-use-dimensionality-reduction">✅ 3. Use Dimensionality Reduction<a class="headerlink" href="#3-use-dimensionality-reduction" title="Permanent link">&para;</a></h4>
+<p>Techniques like <strong>PCA (Principal Component Analysis)</strong> or <strong>Truncated SVD (Latent Semantic Analysis)</strong> can reduce TF-IDF vectors to fewer dimensions while preserving important patterns.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
+
+<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">reduced</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="p">)</span>
+</code></pre></div>
+
 <p>This is like <strong>compressing</strong> your data while keeping its meaning—similar to reducing a high-res image without losing what’s important.</p>
 <hr />
-<h3 id="sparse-bad-always">📉 Sparse ≠ Bad (Always)</h3>
+<h3 id="sparse-bad-always">📉 Sparse ≠ Bad (Always)<a class="headerlink" href="#sparse-bad-always" title="Permanent link">&para;</a></h3>
 <p>Even though sparse vectors are inefficient in some ways, they aren’t always bad.</p>
 <p>In fact, many algorithms (like Naive Bayes or Logistic Regression) are optimized to work well with sparse data.</p>
 <p>The key is to <strong>understand the trade-offs</strong> and choose preprocessing methods that match your problem and data size.</p>
 <hr />
-<h3 id="summary">💡 Summary</h3>
+<h3 id="summary">💡 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>TF-IDF vectors are high-dimensional and sparse</strong> because each document is represented using a huge vocabulary.</li>
 <li><strong>Sparsity</strong> means most values are 0, leading to memory and speed issues.</li>
@@ -2418,7 +2447,7 @@ reduced = svd.fit_transform(tfidf_matrix)
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

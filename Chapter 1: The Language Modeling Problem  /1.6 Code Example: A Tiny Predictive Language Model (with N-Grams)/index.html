@@ -199,15 +199,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -554,15 +559,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -875,15 +885,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1426,15 +1441,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1494,15 +1514,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2099,7 +2124,7 @@
 <p>Awesome! Here’s a <strong>simple, beginner-friendly code example</strong> to help demystify the basics of language modeling using a small <strong>n-gram model</strong> in Python.</p>
 <p>We’ll build a tiny model that predicts the next word based on the previous word—called a <strong>bigram model</strong>.</p>
 <hr />
-<h2 id="6-code-example-a-tiny-predictive-language-model-with-n-grams">6. <strong>Code Example: A Tiny Predictive Language Model (with N-Grams)</strong></h2>
+<h2 id="6-code-example-a-tiny-predictive-language-model-with-n-grams">6. <strong>Code Example: A Tiny Predictive Language Model (with N-Grams)</strong><a class="headerlink" href="#6-code-example-a-tiny-predictive-language-model-with-n-grams" title="Permanent link">&para;</a></h2>
 <p>Before deep learning came into the picture, language models were often built using <strong>n-grams</strong>—sequences of <em>n</em> words. For example:</p>
 <ul>
 <li>A <strong>unigram</strong> model predicts words based on how often they occur.</li>
@@ -2108,42 +2133,43 @@
 </ul>
 <p>Let’s build a <strong>bigram model</strong> from scratch to see how this works.</p>
 <hr />
-<h3 id="python-code-simple-bigram-model">🐍 Python Code: Simple Bigram Model</h3>
-<pre><code class="language-python">import random
-from collections import defaultdict
+<h3 id="python-code-simple-bigram-model">🐍 Python Code: Simple Bigram Model<a class="headerlink" href="#python-code-simple-bigram-model" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
 
-# Our tiny corpus (training data)
-corpus = [
-    &quot;I love deep learning&quot;,
-    &quot;I love machine learning&quot;,
-    &quot;deep learning is fun&quot;,
-    &quot;machine learning is powerful&quot;
-]
+<span class="c1"># Our tiny corpus (training data)</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;I love deep learning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;I love machine learning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deep learning is fun&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;machine learning is powerful&quot;</span>
+<span class="p">]</span>
 
-# Step 1: Tokenize sentences into word pairs (bigrams)
-bigram_model = defaultdict(list)
+<span class="c1"># Step 1: Tokenize sentences into word pairs (bigrams)</span>
+<span class="n">bigram_model</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 
-for sentence in corpus:
-    words = sentence.split()
-    for i in range(len(words) - 1):
-        prefix = words[i]
-        next_word = words[i + 1]
-        bigram_model[prefix].append(next_word)
+<span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">next_word</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">bigram_model</span><span class="p">[</span><span class="n">prefix</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_word</span><span class="p">)</span>
 
-# Step 2: Predict the next word given a previous word
-def predict_next_word(previous_word):
-    possible_words = bigram_model.get(previous_word, [])
-    if not possible_words:
-        return &quot;&lt;no prediction&gt;&quot;
-    return random.choice(possible_words)
+<span class="c1"># Step 2: Predict the next word given a previous word</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_next_word</span><span class="p">(</span><span class="n">previous_word</span><span class="p">):</span>
+    <span class="n">possible_words</span> <span class="o">=</span> <span class="n">bigram_model</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">previous_word</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">possible_words</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;no prediction&gt;&quot;</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">possible_words</span><span class="p">)</span>
 
-# Step 3: Try the model
-test_word = &quot;learning&quot;
-predicted = predict_next_word(test_word)
-print(f&quot;Given '{test_word}', the model predicts: '{predicted}'&quot;)
-</code></pre>
+<span class="c1"># Step 3: Try the model</span>
+<span class="n">test_word</span> <span class="o">=</span> <span class="s2">&quot;learning&quot;</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">predict_next_word</span><span class="p">(</span><span class="n">test_word</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Given &#39;</span><span class="si">{</span><span class="n">test_word</span><span class="si">}</span><span class="s2">&#39;, the model predicts: &#39;</span><span class="si">{</span><span class="n">predicted</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</code></pre></div>
+
 <hr />
-<h3 id="whats-happening-here">🧠 What’s Happening Here?</h3>
+<h3 id="whats-happening-here">🧠 What’s Happening Here?<a class="headerlink" href="#whats-happening-here" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p><strong>Tokenization</strong>: We split each sentence into words and collect bigram pairs like ("I", "love") or ("machine", "learning").</p>
@@ -2159,9 +2185,10 @@ print(f&quot;Given '{test_word}', the model predicts: '{predicted}'&quot;)
 <p>💡 <strong>Note</strong>: This is a toy model. Real language models learn <em>probabilities</em> and generalize better—but this example shows the <em>core idea</em> behind sequence prediction.</p>
 </blockquote>
 <hr />
-<h3 id="sample-output">📥 Sample Output</h3>
-<pre><code>Given 'learning', the model predicts: 'is'
-</code></pre>
+<h3 id="sample-output">📥 Sample Output<a class="headerlink" href="#sample-output" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>Given &#39;learning&#39;, the model predicts: &#39;is&#39;
+</code></pre></div>
+
 <p>Try changing <code>test_word = "I"</code> or <code>"deep"</code> to see how it reacts.</p>
 <hr />
 <p>In the next section, we’ll summarize what we’ve learned and connect it to the bigger picture of modern LLMs.</p>
@@ -2214,7 +2241,7 @@ print(f&quot;Given '{test_word}', the model predicts: '{predicted}'&quot;)
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

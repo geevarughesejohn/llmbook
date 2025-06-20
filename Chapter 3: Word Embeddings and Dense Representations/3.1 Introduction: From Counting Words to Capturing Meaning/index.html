@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -795,15 +805,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1544,15 +1559,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1612,15 +1632,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2328,9 +2353,9 @@
 
 
 
-<h1 id="chapter-3-word-embeddings-and-dense-representations"><strong>Chapter 3: Word Embeddings and Dense Representations</strong></h1>
+<h1 id="chapter-3-word-embeddings-and-dense-representations"><strong>Chapter 3: Word Embeddings and Dense Representations</strong><a class="headerlink" href="#chapter-3-word-embeddings-and-dense-representations" title="Permanent link">&para;</a></h1>
 <hr />
-<h2 id="learning-objectives"><strong>🎯 Learning Objectives</strong></h2>
+<h2 id="learning-objectives"><strong>🎯 Learning Objectives</strong><a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
 <p>By the end of this chapter, the reader will be able to:</p>
 <ul>
 <li>Understand what <strong>word embeddings</strong> are and why they matter.</li>
@@ -2341,9 +2366,9 @@
 <li>Recognize the limitations of static embeddings, and understand why <strong>contextual representations</strong> (like BERT or GPT) are needed.</li>
 </ul>
 <hr />
-<h2 id="chapter-sections"><strong>📚 Chapter Sections</strong></h2>
+<h2 id="chapter-sections"><strong>📚 Chapter Sections</strong><a class="headerlink" href="#chapter-sections" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="31-introduction-from-counting-to-understanding"><strong>3.1 Introduction: From Counting to Understanding</strong></h3>
+<h3 id="31-introduction-from-counting-to-understanding"><strong>3.1 Introduction: From Counting to Understanding</strong><a class="headerlink" href="#31-introduction-from-counting-to-understanding" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Reflect on the limitations of Bag-of-Words and TF-IDF: sparsity, lack of meaning.</li>
 <li>Introduce the need for dense, semantic representations.</li>
@@ -2351,7 +2376,7 @@
 <li>Set the stage for the chapter.</li>
 </ul>
 <hr />
-<h3 id="32-what-are-word-embeddings"><strong>3.2 What Are Word Embeddings?</strong></h3>
+<h3 id="32-what-are-word-embeddings"><strong>3.2 What Are Word Embeddings?</strong><a class="headerlink" href="#32-what-are-word-embeddings" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Introduce <strong>word embeddings</strong> formally and intuitively.</li>
 <li>Explain that a word is represented as a <strong>dense vector</strong> of real numbers (e.g., 100–300 dimensions).</li>
@@ -2359,7 +2384,7 @@
 <li>Use simple analogies (e.g., “words on a map”) to make it visual and relatable.</li>
 </ul>
 <hr />
-<h3 id="33-how-embeddings-capture-meaning"><strong>3.3 How Embeddings Capture Meaning</strong></h3>
+<h3 id="33-how-embeddings-capture-meaning"><strong>3.3 How Embeddings Capture Meaning</strong><a class="headerlink" href="#33-how-embeddings-capture-meaning" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Explain how embeddings are learned from large corpora through co-occurrence and context.</li>
 <li>Discuss the <strong>distributional hypothesis</strong> (“You shall know a word by the company it keeps”).</li>
@@ -2373,7 +2398,7 @@
 <li>Use visualizations (t-SNE or PCA) and diagrams to show word groupings.</li>
 </ul>
 <hr />
-<h3 id="34-word2vec-learning-embeddings-from-context"><strong>3.4 Word2Vec: Learning Embeddings from Context</strong></h3>
+<h3 id="34-word2vec-learning-embeddings-from-context"><strong>3.4 Word2Vec: Learning Embeddings from Context</strong><a class="headerlink" href="#34-word2vec-learning-embeddings-from-context" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Introduce <strong>Word2Vec</strong>, its origin (Google, 2013), and significance.</li>
 <li>
@@ -2387,7 +2412,7 @@
 <li>Explain the role of context window, negative sampling, and why Word2Vec is unsupervised.</li>
 </ul>
 <hr />
-<h3 id="35-glove-global-vectors-from-co-occurrence"><strong>3.5 GloVe: Global Vectors from Co-occurrence</strong></h3>
+<h3 id="35-glove-global-vectors-from-co-occurrence"><strong>3.5 GloVe: Global Vectors from Co-occurrence</strong><a class="headerlink" href="#35-glove-global-vectors-from-co-occurrence" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Explain the motivation behind GloVe (Stanford, 2014).</li>
 <li>
@@ -2401,7 +2426,7 @@
 <li>Show how it balances frequency with meaning.</li>
 </ul>
 <hr />
-<h3 id="36-fasttext-going-beyond-words"><strong>3.6 FastText: Going Beyond Words</strong></h3>
+<h3 id="36-fasttext-going-beyond-words"><strong>3.6 FastText: Going Beyond Words</strong><a class="headerlink" href="#36-fasttext-going-beyond-words" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Present the key innovation: <strong>subword embeddings</strong> using character n-grams.</li>
 <li>
@@ -2414,7 +2439,7 @@
 <li>Discuss FastText’s use in multilingual and noisy datasets.</li>
 </ul>
 <hr />
-<h3 id="37-working-with-pretrained-embeddings-code-case-study"><strong>3.7 Working with Pretrained Embeddings (Code + Case Study)</strong></h3>
+<h3 id="37-working-with-pretrained-embeddings-code-case-study"><strong>3.7 Working with Pretrained Embeddings (Code + Case Study)</strong><a class="headerlink" href="#37-working-with-pretrained-embeddings-code-case-study" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Introduce real-world usage of embeddings.</li>
 <li>
@@ -2429,7 +2454,7 @@
 <li>Build a simple classifier (e.g., sentiment analysis) using averaged word vectors.</li>
 </ul>
 <hr />
-<h3 id="38-limitations-of-word-embeddings"><strong>3.8 Limitations of Word Embeddings</strong></h3>
+<h3 id="38-limitations-of-word-embeddings"><strong>3.8 Limitations of Word Embeddings</strong><a class="headerlink" href="#38-limitations-of-word-embeddings" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Discuss problems that embeddings don’t solve:</p>
@@ -2442,7 +2467,7 @@
 <li>Use real examples to show failure cases.</li>
 </ul>
 <hr />
-<h3 id="39-from-static-to-contextual-the-next-step"><strong>3.9 From Static to Contextual: The Next Step</strong></h3>
+<h3 id="39-from-static-to-contextual-the-next-step"><strong>3.9 From Static to Contextual: The Next Step</strong><a class="headerlink" href="#39-from-static-to-contextual-the-next-step" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Set up the transition to contextual embeddings (Chapter 4).</li>
 <li>
@@ -2458,14 +2483,14 @@
 <p>Would you like me to now begin writing <strong>Section 3.1</strong> in the same clear, descriptive, and structured teaching style as <strong>2.3.1 / 2.3.2</strong>?</p>
 <p>Great — let’s now write <strong>Section 3.1: Introduction: From Counting to Understanding</strong> in the same descriptive, warm, beginner-friendly style as <strong>Sections 2.3.1 / 2.3.2</strong> from Chapter 2.</p>
 <hr />
-<h2 id="31-introduction-from-counting-to-understanding_1"><strong>3.1 Introduction: From Counting to Understanding</strong></h2>
+<h2 id="31-introduction-from-counting-to-understanding_1"><strong>3.1 Introduction: From Counting to Understanding</strong><a class="headerlink" href="#31-introduction-from-counting-to-understanding_1" title="Permanent link">&para;</a></h2>
 <p>In the early stages of working with text data, we focused on turning words into numbers—a necessary first step in making language accessible to machines. Classical techniques like <strong>Bag-of-Words</strong> and <strong>TF-IDF</strong> helped us do that. They allowed us to convert entire sentences or documents into vectors based on how often certain words appear.</p>
 <p>At first, this seems like progress. Machines can now process text numerically, and that’s useful for tasks like spam detection, topic classification, or keyword matching.</p>
 <p>But let’s pause for a moment and ask:
 <strong>Do these models really understand language?</strong></p>
 <p>The answer, unfortunately, is no.</p>
 <hr />
-<h3 id="the-limits-of-counting">🧱 The Limits of Counting</h3>
+<h3 id="the-limits-of-counting">🧱 The Limits of Counting<a class="headerlink" href="#the-limits-of-counting" title="Permanent link">&para;</a></h3>
 <p>Imagine you have two short sentences:</p>
 <ul>
 <li>“I love sunny beaches.”</li>
@@ -2476,7 +2501,7 @@
 <p>In short, these methods <strong>count</strong>, but they don’t <strong>understand</strong>.</p>
 <p>And there are deeper problems too.</p>
 <hr />
-<h3 id="the-problem-of-sparse-vectors">🧊 The Problem of Sparse Vectors</h3>
+<h3 id="the-problem-of-sparse-vectors">🧊 The Problem of Sparse Vectors<a class="headerlink" href="#the-problem-of-sparse-vectors" title="Permanent link">&para;</a></h3>
 <p>Classical vector models create huge, high-dimensional vectors—often tens or hundreds of thousands of dimensions long—where each dimension corresponds to a word in the vocabulary.</p>
 <p>Most of the time, these vectors are <strong>sparse</strong>, meaning they’re mostly zeros. If a sentence only uses a handful of words from a massive vocabulary, the vector representation will be nearly empty.</p>
 <p>Sparse vectors:</p>
@@ -2487,7 +2512,7 @@
 </ul>
 <p>It’s like trying to understand someone’s personality by looking at which words they use, without considering how or why they use them.</p>
 <hr />
-<h3 id="words-without-context">🎭 Words Without Context</h3>
+<h3 id="words-without-context">🎭 Words Without Context<a class="headerlink" href="#words-without-context" title="Permanent link">&para;</a></h3>
 <p>Another big issue is <strong>polysemy</strong>—when a single word has multiple meanings.</p>
 <p>Consider the word “bat” in these two sentences:</p>
 <ul>
@@ -2497,7 +2522,7 @@
 <p>These are clearly very different uses of the word. But in both TF-IDF and Bag-of-Words, “bat” is just one word—one vector. There’s no way for the model to distinguish between a wooden stick and a flying mammal.</p>
 <p>That’s a serious limitation. It means the model has no way of knowing what a word means in a given sentence.</p>
 <hr />
-<h3 id="the-need-for-better-representations">🌱 The Need for Better Representations</h3>
+<h3 id="the-need-for-better-representations">🌱 The Need for Better Representations<a class="headerlink" href="#the-need-for-better-representations" title="Permanent link">&para;</a></h3>
 <p>By now, it should be clear:
 Classical methods give us <strong>numbers</strong>, but not <strong>meaning</strong>.</p>
 <p>We want something better—something that can tell us:</p>
@@ -2563,7 +2588,7 @@ Classical methods give us <strong>numbers</strong>, but not <strong>meaning</str
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

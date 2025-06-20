@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -795,15 +805,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1477,15 +1492,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1545,15 +1565,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2198,7 +2223,7 @@
 
   <h1>3.5.2 FastText – Words as Bags of Subwords</h1>
 
-<h2 id="352-fasttext-words-as-bags-of-subwords"><strong>3.5.2 FastText – Words as Bags of Subwords</strong></h2>
+<h2 id="352-fasttext-words-as-bags-of-subwords"><strong>3.5.2 FastText – Words as Bags of Subwords</strong><a class="headerlink" href="#352-fasttext-words-as-bags-of-subwords" title="Permanent link">&para;</a></h2>
 <p>Imagine trying to understand a language without knowing how to break down words like “running,” “runner,” or “happiness” into parts. That’s essentially what Word2Vec does—it treats every word as a unique, indivisible object.</p>
 <p><strong>FastText</strong>, developed by Facebook AI Research in 2016, offered a clever upgrade:</p>
 <blockquote>
@@ -2207,11 +2232,12 @@
 <p>Instead of learning a vector for each word as a whole, FastText learns vectors for <strong>parts of words</strong>—called <strong>character n-grams</strong>—and then combines them to build word embeddings.</p>
 <p>This simple idea makes FastText <strong>smarter with rare words</strong>, <strong>better at generalizing</strong>, and <strong>more robust</strong> to spelling variations and new vocabulary.</p>
 <hr />
-<h3 id="the-key-idea-subword-units">🔠 The Key Idea: Subword Units</h3>
+<h3 id="the-key-idea-subword-units">🔠 The Key Idea: Subword Units<a class="headerlink" href="#the-key-idea-subword-units" title="Permanent link">&para;</a></h3>
 <p>FastText represents each word as a collection of <strong>character-level n-grams</strong>. These are overlapping sequences of characters inside the word.</p>
 <p>For example, for the word <code>"playing"</code> and n-gram size 3, we might get:</p>
-<pre><code>&lt;pl, pla, lay, ayi, yin, ing, ng&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>&lt;pl, pla, lay, ayi, yin, ing, ng&gt;
+</code></pre></div>
+
 <p>(Note: FastText also uses special boundary symbols like <code>&lt;</code> and <code>&gt;</code> to distinguish word edges.)</p>
 <p>Each n-gram gets its own vector. To create a word vector:</p>
 <ul>
@@ -2219,9 +2245,9 @@
 <li>The final embedding represents not just the whole word, but its internal parts.</li>
 </ul>
 <hr />
-<h3 id="why-this-matters">📦 Why This Matters</h3>
+<h3 id="why-this-matters">📦 Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h3>
 <p>This design gives FastText a few powerful advantages over Word2Vec:</p>
-<h4 id="1-handles-rare-and-unseen-words">✅ 1. Handles Rare and Unseen Words</h4>
+<h4 id="1-handles-rare-and-unseen-words">✅ 1. Handles Rare and Unseen Words<a class="headerlink" href="#1-handles-rare-and-unseen-words" title="Permanent link">&para;</a></h4>
 <p>If the model has never seen the word <code>"unhappiness"</code> before, that’s okay!
 As long as it has seen <code>"happy"</code>, <code>"ness"</code>, <code>"un"</code>, etc., it can still <strong>compose a reasonable embedding</strong> by combining subword vectors.</p>
 <p>This is especially valuable in:</p>
@@ -2230,45 +2256,46 @@ As long as it has seen <code>"happy"</code>, <code>"ness"</code>, <code>"un"</co
 <li><strong>Highly inflected languages</strong></li>
 <li><strong>Misspelled or made-up words</strong> (like names or slang)</li>
 </ul>
-<h4 id="2-learns-morphology-implicitly">✅ 2. Learns Morphology Implicitly</h4>
+<h4 id="2-learns-morphology-implicitly">✅ 2. Learns Morphology Implicitly<a class="headerlink" href="#2-learns-morphology-implicitly" title="Permanent link">&para;</a></h4>
 <p>Words like <code>"run"</code>, <code>"runs"</code>, <code>"running"</code>, and <code>"runner"</code> will share many n-grams, so their vectors will naturally be <strong>close in space</strong>.</p>
 <p>This leads to better generalization and <strong>more compact</strong> embedding spaces.</p>
-<h4 id="3-robust-to-typos-and-variants">✅ 3. Robust to Typos and Variants</h4>
+<h4 id="3-robust-to-typos-and-variants">✅ 3. Robust to Typos and Variants<a class="headerlink" href="#3-robust-to-typos-and-variants" title="Permanent link">&para;</a></h4>
 <p>Even if a user types <code>"runnning"</code> or <code>"plaiyng"</code>, FastText can still <strong>extract familiar subword patterns</strong>, making it less brittle.</p>
 <hr />
-<h3 id="architecturally-speaking">🧠 Architecturally Speaking</h3>
+<h3 id="architecturally-speaking">🧠 Architecturally Speaking<a class="headerlink" href="#architecturally-speaking" title="Permanent link">&para;</a></h3>
 <p>Internally, FastText extends the <strong>Skip-Gram</strong> model.
 The key difference is that it doesn’t use a one-hot vector for the input word—instead, it uses all the subword vectors to create the input.</p>
 <p>The rest of the training process (negative sampling, context prediction) works just like in Word2Vec.</p>
 <hr />
-<h3 id="example-training-fasttext-in-python">🧪 Example: Training FastText in Python</h3>
+<h3 id="example-training-fasttext-in-python">🧪 Example: Training FastText in Python<a class="headerlink" href="#example-training-fasttext-in-python" title="Permanent link">&para;</a></h3>
 <p>Let’s train FastText on a few simple sentences using <code>gensim</code>:</p>
-<pre><code class="language-python">from gensim.models import FastText
-from nltk.tokenize import word_tokenize
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastText</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
 
-sentences = [
-    &quot;Dogs are running fast&quot;,
-    &quot;A dog runs faster than a cat&quot;,
-    &quot;Running is good exercise&quot;
-]
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Dogs are running fast&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;A dog runs faster than a cat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Running is good exercise&quot;</span>
+<span class="p">]</span>
 
-tokenized = [word_tokenize(sent.lower()) for sent in sentences]
+<span class="n">tokenized</span> <span class="o">=</span> <span class="p">[</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sent</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
 
-model = FastText(
-    sentences=tokenized,
-    vector_size=50,
-    window=3,
-    min_count=1,
-    sg=1,            # Skip-Gram
-    epochs=50
-)
+<span class="n">model</span> <span class="o">=</span> <span class="n">FastText</span><span class="p">(</span>
+    <span class="n">sentences</span><span class="o">=</span><span class="n">tokenized</span><span class="p">,</span>
+    <span class="n">vector_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">sg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>            <span class="c1"># Skip-Gram</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span>
 
-# Try a rare word
-print(model.wv['runnning'])  # Misspelled on purpose!
-</code></pre>
+<span class="c1"># Try a rare word</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s1">&#39;runnning&#39;</span><span class="p">])</span>  <span class="c1"># Misspelled on purpose!</span>
+</code></pre></div>
+
 <p>Even though <code>"runnning"</code> (with triple n’s) wasn’t seen, FastText can still <strong>build a vector</strong> using its subwords.</p>
 <hr />
-<h3 id="when-should-you-use-fasttext">📊 When Should You Use FastText?</h3>
+<h3 id="when-should-you-use-fasttext">📊 When Should You Use FastText?<a class="headerlink" href="#when-should-you-use-fasttext" title="Permanent link">&para;</a></h3>
 <p>Use FastText when:</p>
 <ul>
 <li>You’re dealing with <strong>morphologically rich languages</strong></li>
@@ -2324,7 +2351,7 @@ print(model.wv['runnning'])  # Misspelled on purpose!
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

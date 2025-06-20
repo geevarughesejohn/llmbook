@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -795,15 +805,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1459,15 +1474,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1527,15 +1547,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2162,13 +2187,13 @@
 
   <h1>3.6 Limitations of Word Embeddings — And What Comes Next</h1>
 
-<h2 id="36-limitations-of-word-embeddings-and-what-comes-next"><strong>3.6 Limitations of Word Embeddings — And What Comes Next</strong></h2>
+<h2 id="36-limitations-of-word-embeddings-and-what-comes-next"><strong>3.6 Limitations of Word Embeddings — And What Comes Next</strong><a class="headerlink" href="#36-limitations-of-word-embeddings-and-what-comes-next" title="Permanent link">&para;</a></h2>
 <p>Word embeddings like <strong>Word2Vec</strong>, <strong>GloVe</strong>, and <strong>FastText</strong> helped transform raw text into numbers that machines could understand. They captured surprisingly rich relationships—analogies like “king - man + woman ≈ queen” amazed even researchers.</p>
 <p>But they’re not the end of the story.</p>
 <p>As we used them more deeply, we began to notice cracks—fundamental limitations that prevented them from fully modeling language like a human would.</p>
 <p>Let’s walk through where word embeddings fall short.</p>
 <hr />
-<h3 id="1-no-understanding-of-context">🧠 1. No Understanding of Context</h3>
+<h3 id="1-no-understanding-of-context">🧠 1. No Understanding of Context<a class="headerlink" href="#1-no-understanding-of-context" title="Permanent link">&para;</a></h3>
 <p>The word <strong>“bank”</strong> is a classic example:</p>
 <ul>
 <li>“He sat by the <strong>river bank</strong>.”</li>
@@ -2181,7 +2206,7 @@
 </blockquote>
 <p>And that’s just not how language works.</p>
 <hr />
-<h3 id="2-static-and-frozen">📦 2. Static and Frozen</h3>
+<h3 id="2-static-and-frozen">📦 2. Static and Frozen<a class="headerlink" href="#2-static-and-frozen" title="Permanent link">&para;</a></h3>
 <p>Once word embeddings are trained, they’re <strong>static</strong>:</p>
 <ul>
 <li>“Running” will always be mapped to the same vector.</li>
@@ -2190,12 +2215,12 @@
 </ul>
 <p>They don’t <strong>grow</strong> with the task or adjust based on sentence structure.</p>
 <hr />
-<h3 id="3-the-oov-problem">🚫 3. The OOV Problem</h3>
+<h3 id="3-the-oov-problem">🚫 3. The OOV Problem<a class="headerlink" href="#3-the-oov-problem" title="Permanent link">&para;</a></h3>
 <p><strong>OOV</strong> stands for <strong>Out-of-Vocabulary</strong>—and it’s a big issue in NLP.</p>
 <p>If your model never saw the word “cryptocurrency” during training, it has no idea what it is. Word2Vec and GloVe will simply fail.</p>
 <p>FastText helps a bit by using subwords, but even then, it's more of a patch than a full solution.</p>
 <hr />
-<h3 id="4-no-sentence-level-understanding">🧩 4. No Sentence-Level Understanding</h3>
+<h3 id="4-no-sentence-level-understanding">🧩 4. No Sentence-Level Understanding<a class="headerlink" href="#4-no-sentence-level-understanding" title="Permanent link">&para;</a></h3>
 <p>Word embeddings operate at the <strong>individual word level</strong>. There’s no mechanism for understanding:</p>
 <ul>
 <li><strong>Sentence structure</strong></li>
@@ -2204,7 +2229,7 @@
 </ul>
 <p>So while “the cat sat on the mat” and “the mat sat on the cat” use the same words, the meaning flips—but the embeddings stay nearly the same.</p>
 <hr />
-<h2 id="what-comes-next-contextual-embeddings">🔮 What Comes Next: Contextual Embeddings</h2>
+<h2 id="what-comes-next-contextual-embeddings">🔮 What Comes Next: Contextual Embeddings<a class="headerlink" href="#what-comes-next-contextual-embeddings" title="Permanent link">&para;</a></h2>
 <p>To overcome these problems, a new generation of models emerged—ones that don’t assign words fixed vectors but <strong>dynamically adjust based on context</strong>.</p>
 <p>This new class is known as <strong>contextual embeddings</strong>, and it includes some of the most important models in modern NLP:</p>
 <ul>
@@ -2218,7 +2243,7 @@
 </blockquote>
 <p>They are <strong>deep</strong>, <strong>context-aware</strong>, and form the core of most modern language systems—including the Large Language Models that power tools like ChatGPT.</p>
 <hr />
-<h3 id="a-tease-of-whats-ahead">🌱 A Tease of What’s Ahead</h3>
+<h3 id="a-tease-of-whats-ahead">🌱 A Tease of What’s Ahead<a class="headerlink" href="#a-tease-of-whats-ahead" title="Permanent link">&para;</a></h3>
 <p>In the next chapter, we’ll explore:</p>
 <ul>
 <li>What makes contextual embeddings different (and powerful)</li>
@@ -2277,7 +2302,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

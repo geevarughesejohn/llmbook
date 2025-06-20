@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2096,7 +2121,7 @@
 
   <h1>4.2.2 The Core Idea of Recurrence</h1>
 
-<h2 id="422-the-core-idea-of-recurrence"><strong>4.2.2 The Core Idea of Recurrence</strong></h2>
+<h2 id="422-the-core-idea-of-recurrence"><strong>4.2.2 The Core Idea of Recurrence</strong><a class="headerlink" href="#422-the-core-idea-of-recurrence" title="Permanent link">&para;</a></h2>
 <p>At the heart of a Recurrent Neural Network (RNN) is a simple but powerful idea: <strong>what you’ve already seen should help you understand what comes next</strong>.</p>
 <p>Let’s break that down.</p>
 <p>In a standard feedforward neural network, you give the model an input, it processes that input, and then it produces an output. Done. It doesn’t remember anything about what came before. That’s fine for tasks where each input is independent—like identifying whether an image contains a cat or not—but it doesn’t work well for language, where meaning <strong>depends on history</strong>.</p>
@@ -2107,7 +2132,7 @@
 </ol>
 <p>Together, these allow the RNN to form a new understanding of the sentence so far.</p>
 <hr />
-<h3 id="a-little-math-gently-introduced">🧠 A Little Math (Gently Introduced)</h3>
+<h3 id="a-little-math-gently-introduced">🧠 A Little Math (Gently Introduced)<a class="headerlink" href="#a-little-math-gently-introduced" title="Permanent link">&para;</a></h3>
 <p>Let’s say we’re processing a sentence word by word. At time step <code>t</code>, the RNN receives:</p>
 <ul>
 <li>The input word vector: $x_t$</li>
@@ -2126,17 +2151,18 @@ $$</p>
 </ul>
 <p>Each time the RNN reads a new word, it blends that word with its current memory, updates its hidden state, and passes it forward.</p>
 <p>You can visualize it like this:</p>
-<pre><code>x_t ──▶[ RNN Cell ]──▶ h_t
-       ▲       │
-       │       ▼
-     h_{t-1}  Output
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">x_t</span><span class="w"> </span><span class="err">──▶</span><span class="p">[</span><span class="w"> </span><span class="n">RNN</span><span class="w"> </span><span class="n">Cell</span><span class="w"> </span><span class="p">]</span><span class="err">──▶</span><span class="w"> </span><span class="n">h_t</span>
+<span class="w">       </span><span class="err">▲</span><span class="w">       </span><span class="err">│</span>
+<span class="w">       </span><span class="err">│</span><span class="w">       </span><span class="err">▼</span>
+<span class="w">     </span><span class="n">h_</span><span class="p">{</span><span class="n">t</span><span class="mi">-1</span><span class="p">}</span><span class="w">  </span><span class="n">Output</span>
+</code></pre></div>
+
 <p>Each <strong>RNN Cell</strong> has a loop inside it—this is what allows it to carry memory from one step to the next. It’s why we call it <em>recurrent</em>.</p>
 <hr />
-<h3 id="analogy-reading-a-story">📚 Analogy: Reading a Story</h3>
+<h3 id="analogy-reading-a-story">📚 Analogy: Reading a Story<a class="headerlink" href="#analogy-reading-a-story" title="Permanent link">&para;</a></h3>
 <p>Imagine reading a mystery novel. As each new clue is revealed, you update your mental model of who might be the culprit. That internal model—the accumulation of everything you’ve read so far—is like the RNN’s hidden state. Each new piece of information (a sentence or paragraph) modifies your understanding just a bit. You don’t forget everything that came before—you build on it.</p>
 <hr />
-<h3 id="why-it-matters">🧩 Why It Matters</h3>
+<h3 id="why-it-matters">🧩 Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h3>
 <p>This structure allows the RNN to <strong>capture patterns over time</strong>. It can learn that “The cat sat on the” is likely to be followed by “mat,” or that the phrase “I am feeling very” could lead to “happy,” “sad,” or “tired” depending on the context.</p>
 <p>But while this idea of recurrence is powerful, it's not without flaws. As sequences grow longer, the RNN’s memory begins to fade. It becomes harder for the model to carry meaningful signals across many steps—a problem we’ll explore in a later section on <strong>vanishing gradients</strong>.</p>
 <p>Before we get there, let’s first look at how RNNs work when you process <strong>an entire sentence</strong>, one word at a time. That’s what we’ll cover next in <strong>4.2.3: Unrolling an RNN Over Time</strong>.</p>
@@ -2188,7 +2214,7 @@ $$</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

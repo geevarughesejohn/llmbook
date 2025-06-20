@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -474,15 +479,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -956,15 +966,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1507,15 +1522,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1575,15 +1595,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2258,9 +2283,9 @@
 
   <h1>4 Classical NLP Pipelines</h1>
 
-<h2 id="24-classical-nlp-pipelines"><strong>2.4 Classical NLP Pipelines</strong></h2>
+<h2 id="24-classical-nlp-pipelines"><strong>2.4 Classical NLP Pipelines</strong><a class="headerlink" href="#24-classical-nlp-pipelines" title="Permanent link">&para;</a></h2>
 <hr />
-<h3 id="what-is-an-nlp-pipeline">🛠️ What Is an NLP Pipeline?</h3>
+<h3 id="what-is-an-nlp-pipeline">🛠️ What Is an NLP Pipeline?<a class="headerlink" href="#what-is-an-nlp-pipeline" title="Permanent link">&para;</a></h3>
 <p>A <strong>Natural Language Processing (NLP) pipeline</strong> is a <strong>step-by-step process</strong> that takes raw text and turns it into something a machine learning model can understand and use.</p>
 <p>Think of it like a factory assembly line:</p>
 <ul>
@@ -2270,7 +2295,7 @@
 </ul>
 <p>These pipelines form the backbone of many real-world NLP tasks like <strong>spam detection</strong>, <strong>sentiment analysis</strong>, <strong>chatbots</strong>, and more.</p>
 <hr />
-<h3 id="typical-stages-in-a-classical-nlp-pipeline">🔁 Typical Stages in a Classical NLP Pipeline</h3>
+<h3 id="typical-stages-in-a-classical-nlp-pipeline">🔁 Typical Stages in a Classical NLP Pipeline<a class="headerlink" href="#typical-stages-in-a-classical-nlp-pipeline" title="Permanent link">&para;</a></h3>
 <p>Here’s what a basic classical pipeline might look like:</p>
 <ol>
 <li><strong>Text Cleaning &amp; Normalization</strong></li>
@@ -2283,7 +2308,7 @@
 </ol>
 <p>Let’s walk through each step with intuitive explanations and examples.</p>
 <hr />
-<h3 id="1-text-cleaning-normalization">✂️ 1. Text Cleaning &amp; Normalization</h3>
+<h3 id="1-text-cleaning-normalization">✂️ 1. Text Cleaning &amp; Normalization<a class="headerlink" href="#1-text-cleaning-normalization" title="Permanent link">&para;</a></h3>
 <p>Before you analyze anything, it helps to clean your data.</p>
 <p>Typical cleaning includes:</p>
 <ul>
@@ -2295,15 +2320,16 @@
 </ul>
 <p>This step ensures consistency across the dataset.</p>
 <hr />
-<h3 id="2-tokenization">✨ 2. Tokenization</h3>
+<h3 id="2-tokenization">✨ 2. Tokenization<a class="headerlink" href="#2-tokenization" title="Permanent link">&para;</a></h3>
 <p>Splitting text into individual words (or tokens).</p>
-<pre><code class="language-python">from nltk.tokenize import word_tokenize
-word_tokenize(&quot;I love NLP!&quot;) 
-# Output: ['I', 'love', 'NLP', '!']
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="n">word_tokenize</span><span class="p">(</span><span class="s2">&quot;I love NLP!&quot;</span><span class="p">)</span> 
+<span class="c1"># Output: [&#39;I&#39;, &#39;love&#39;, &#39;NLP&#39;, &#39;!&#39;]</span>
+</code></pre></div>
+
 <p>These tokens become the units we work with in all future steps.</p>
 <hr />
-<h3 id="3-stemming-or-lemmatization">🌱 3. Stemming or Lemmatization</h3>
+<h3 id="3-stemming-or-lemmatization">🌱 3. Stemming or Lemmatization<a class="headerlink" href="#3-stemming-or-lemmatization" title="Permanent link">&para;</a></h3>
 <p>Reducing words to a root form:</p>
 <ul>
 <li><code>running → run</code></li>
@@ -2315,24 +2341,26 @@ word_tokenize(&quot;I love NLP!&quot;)
 <li>Use <strong>lemmatization</strong> for better accuracy</li>
 </ul>
 <hr />
-<h3 id="4-stopword-removal">🚫 4. Stopword Removal</h3>
+<h3 id="4-stopword-removal">🚫 4. Stopword Removal<a class="headerlink" href="#4-stopword-removal" title="Permanent link">&para;</a></h3>
 <p>Some words are <strong>too common</strong> to be useful, like:</p>
 <ul>
 <li>“the”, “is”, “and”, “of”, “a”</li>
 </ul>
 <p>Removing them reduces noise and dimensionality.</p>
-<pre><code class="language-python">from nltk.corpus import stopwords
-stopwords.words('english')  # List of common stopwords
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>  <span class="c1"># List of common stopwords</span>
+</code></pre></div>
+
 <hr />
-<h3 id="5-part-of-speech-pos-tagging-optional">🏷️ 5. Part-of-Speech (POS) Tagging (Optional)</h3>
+<h3 id="5-part-of-speech-pos-tagging-optional">🏷️ 5. Part-of-Speech (POS) Tagging (Optional)<a class="headerlink" href="#5-part-of-speech-pos-tagging-optional" title="Permanent link">&para;</a></h3>
 <p>Adds grammatical meaning to words—especially useful if you plan to use lemmatization or extract only certain kinds of words (e.g., nouns, verbs).</p>
-<pre><code class="language-python">from nltk import pos_tag
-pos_tag(['NLP', 'is', 'awesome'])
-# Output: [('NLP', 'NNP'), ('is', 'VBZ'), ('awesome', 'JJ')]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">nltk</span><span class="w"> </span><span class="kn">import</span> <span class="n">pos_tag</span>
+<span class="n">pos_tag</span><span class="p">([</span><span class="s1">&#39;NLP&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;awesome&#39;</span><span class="p">])</span>
+<span class="c1"># Output: [(&#39;NLP&#39;, &#39;NNP&#39;), (&#39;is&#39;, &#39;VBZ&#39;), (&#39;awesome&#39;, &#39;JJ&#39;)]</span>
+</code></pre></div>
+
 <hr />
-<h3 id="6-vectorization-bow-or-tf-idf">🔢 6. Vectorization (BoW or TF-IDF)</h3>
+<h3 id="6-vectorization-bow-or-tf-idf">🔢 6. Vectorization (BoW or TF-IDF)<a class="headerlink" href="#6-vectorization-bow-or-tf-idf" title="Permanent link">&para;</a></h3>
 <p>Convert tokens into numerical vectors using methods like:</p>
 <ul>
 <li><strong>Bag-of-Words</strong>: raw word counts</li>
@@ -2340,7 +2368,7 @@ pos_tag(['NLP', 'is', 'awesome'])
 </ul>
 <p>These vectors become the <strong>features</strong> for machine learning models.</p>
 <hr />
-<h3 id="7-train-a-machine-learning-model">📊 7. Train a Machine Learning Model</h3>
+<h3 id="7-train-a-machine-learning-model">📊 7. Train a Machine Learning Model<a class="headerlink" href="#7-train-a-machine-learning-model" title="Permanent link">&para;</a></h3>
 <p>Now you can feed the vectors into algorithms like:</p>
 <ul>
 <li><strong>Logistic Regression</strong></li>
@@ -2353,48 +2381,50 @@ pos_tag(['NLP', 'is', 'awesome'])
 <li>Is this review positive or negative?</li>
 </ul>
 <hr />
-<h3 id="mini-example-a-classical-pipeline-in-code">🧪 Mini Example: A Classical Pipeline in Code</h3>
-<pre><code class="language-python">from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
+<h3 id="mini-example-a-classical-pipeline-in-code">🧪 Mini Example: A Classical Pipeline in Code<a class="headerlink" href="#mini-example-a-classical-pipeline-in-code" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultinomialNB</span>
 
-# Step 1: Sample data
-texts = [
-    &quot;I love this movie&quot;,
-    &quot;This film was awful&quot;,
-    &quot;Amazing story and great characters&quot;,
-    &quot;Terrible plot and boring scenes&quot;
-]
-labels = [1, 0, 1, 0]  # 1 = Positive, 0 = Negative
+<span class="c1"># Step 1: Sample data</span>
+<span class="n">texts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;I love this movie&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;This film was awful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Amazing story and great characters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Terrible plot and boring scenes&quot;</span>
+<span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># 1 = Positive, 0 = Negative</span>
 
-# Step 2: Vectorize with TF-IDF
-vectorizer = TfidfVectorizer(stop_words='english')
-X = vectorizer.fit_transform(texts)
+<span class="c1"># Step 2: Vectorize with TF-IDF</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
 
-# Step 3: Train a model
-model = MultinomialNB()
-model.fit(X, labels)
+<span class="c1"># Step 3: Train a model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 
-# Step 4: Predict
-test = vectorizer.transform([&quot;great film&quot;])
-print(model.predict(test))  # Output: [1]
-</code></pre>
+<span class="c1"># Step 4: Predict</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;great film&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>  <span class="c1"># Output: [1]</span>
+</code></pre></div>
+
 <blockquote>
 <p>🧠 This is a basic <strong>sentiment classifier</strong> built entirely from a classical pipeline—no deep learning required!</p>
 </blockquote>
 <hr />
-<h3 id="tools-for-pipelines">🧰 Tools for Pipelines</h3>
+<h3 id="tools-for-pipelines">🧰 Tools for Pipelines<a class="headerlink" href="#tools-for-pipelines" title="Permanent link">&para;</a></h3>
 <p>If you're working with lots of data or want to automate these steps, libraries like <strong>spaCy</strong> and <strong>NLTK</strong> offer prebuilt pipelines.</p>
 <p>You can also build custom pipelines using <code>scikit-learn</code>'s <code>Pipeline</code> class:</p>
-<pre><code class="language-python">from sklearn.pipeline import Pipeline
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 
-text_clf = Pipeline([
-    ('tfidf', TfidfVectorizer(stop_words='english')),
-    ('clf', MultinomialNB())
-])
-</code></pre>
+<span class="n">text_clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;tfidf&#39;</span><span class="p">,</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">MultinomialNB</span><span class="p">())</span>
+<span class="p">])</span>
+</code></pre></div>
+
 <p>This makes the pipeline modular and reproducible.</p>
 <hr />
-<h3 id="summary">🏁 Summary</h3>
+<h3 id="summary">🏁 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <p>A classical NLP pipeline:</p>
 <ul>
 <li>Starts with raw text</li>
@@ -2452,7 +2482,7 @@ text_clf = Pipeline([
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

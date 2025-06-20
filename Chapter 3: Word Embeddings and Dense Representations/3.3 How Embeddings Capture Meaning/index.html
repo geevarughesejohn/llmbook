@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -795,15 +805,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1444,15 +1459,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1512,15 +1532,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2132,7 +2157,7 @@
 
   <h1>3.3 How Embeddings Capture Meaning</h1>
 
-<h2 id="33-how-embeddings-capture-meaning"><strong>3.3 How Embeddings Capture Meaning</strong></h2>
+<h2 id="33-how-embeddings-capture-meaning"><strong>3.3 How Embeddings Capture Meaning</strong><a class="headerlink" href="#33-how-embeddings-capture-meaning" title="Permanent link">&para;</a></h2>
 <p>Now that you understand <strong>what word embeddings are</strong>—dense, learned vector representations of words—it’s time to dig deeper into <strong>how</strong> they capture meaning from real language. This is where the magic of embeddings really begins to shine.</p>
 <p>How is it possible that a model trained on nothing but raw text can discover that:</p>
 <ul>
@@ -2142,7 +2167,7 @@
 </ul>
 <p>The answer lies in a principle that’s as old as computational linguistics itself: the <strong>distributional hypothesis</strong>.</p>
 <hr />
-<h3 id="the-distributional-hypothesis">🧠 The Distributional Hypothesis</h3>
+<h3 id="the-distributional-hypothesis">🧠 The Distributional Hypothesis<a class="headerlink" href="#the-distributional-hypothesis" title="Permanent link">&para;</a></h3>
 <p>At the heart of word embeddings is a simple but powerful idea:</p>
 <blockquote>
 <p>“<strong>You shall know a word by the company it keeps.</strong>”
@@ -2159,7 +2184,7 @@
 <p>Here, <strong>tea</strong> and <strong>coffee</strong> appear in similar roles, with similar surrounding words. A machine that sees thousands of such examples can begin to recognize this pattern. Over time, the model learns to place <strong>tea</strong> and <strong>coffee</strong> close together in the embedding space.</p>
 <p>This is the magic: the model isn’t told what these words mean, but it <strong>discovers</strong> their meaning from patterns in how they’re used.</p>
 <hr />
-<h3 id="context-drives-meaning">🔄 Context Drives Meaning</h3>
+<h3 id="context-drives-meaning">🔄 Context Drives Meaning<a class="headerlink" href="#context-drives-meaning" title="Permanent link">&para;</a></h3>
 <p>Let’s make this even more concrete.</p>
 <p>Imagine you’re training a model, and you feed it this sentence:</p>
 <blockquote>
@@ -2180,7 +2205,7 @@
 </ul>
 <p>That’s how meaning forms. It’s not from a dictionary. It’s from <strong>data-driven observation</strong>.</p>
 <hr />
-<h3 id="how-the-learning-happens-without-heavy-math">🛠️ How the Learning Happens (Without Heavy Math)</h3>
+<h3 id="how-the-learning-happens-without-heavy-math">🛠️ How the Learning Happens (Without Heavy Math)<a class="headerlink" href="#how-the-learning-happens-without-heavy-math" title="Permanent link">&para;</a></h3>
 <p>Let’s briefly look at how models like <strong>Word2Vec</strong> make this happen in practice.</p>
 <p>Suppose we have this sentence:</p>
 <blockquote>
@@ -2197,7 +2222,7 @@
 <p>Every time the model gets a prediction wrong, it adjusts the word vectors to get a bit closer to being right next time. Over millions of sentences, the model slowly pushes words used in <strong>similar contexts</strong> closer together in vector space.</p>
 <p>This is how the structure of language becomes the structure of space.</p>
 <hr />
-<h3 id="embeddings-learn-more-than-just-similarity">📦 Embeddings Learn More Than Just Similarity</h3>
+<h3 id="embeddings-learn-more-than-just-similarity">📦 Embeddings Learn More Than Just Similarity<a class="headerlink" href="#embeddings-learn-more-than-just-similarity" title="Permanent link">&para;</a></h3>
 <p>Because the model has access to massive amounts of data, it doesn’t just learn that <code>"king"</code> is close to <code>"queen"</code>—it learns <strong>how</strong> they relate. It starts to capture higher-level relationships like:</p>
 <ul>
 <li>Gender (man → woman, king → queen)</li>
@@ -2206,12 +2231,13 @@
 </ul>
 <p>These patterns aren’t hand-coded. They <strong>emerge naturally</strong> from the training process.</p>
 <hr />
-<h3 id="real-world-example">📊 Real-World Example</h3>
+<h3 id="real-world-example">📊 Real-World Example<a class="headerlink" href="#real-world-example" title="Permanent link">&para;</a></h3>
 <p>Let’s look at a real case. If we inspect vectors from a trained Word2Vec model, we might find:</p>
-<pre><code class="language-python">similar(&quot;king&quot;) → [&quot;queen&quot;, &quot;monarch&quot;, &quot;prince&quot;, &quot;emperor&quot;, &quot;ruler&quot;]
-similar(&quot;banana&quot;) → [&quot;apple&quot;, &quot;mango&quot;, &quot;fruit&quot;, &quot;pineapple&quot;, &quot;grape&quot;]
-similar(&quot;run&quot;) → [&quot;jog&quot;, &quot;sprint&quot;, &quot;race&quot;, &quot;walk&quot;, &quot;exercise&quot;]
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">similar</span><span class="p">(</span><span class="s2">&quot;king&quot;</span><span class="p">)</span> <span class="err">→</span> <span class="p">[</span><span class="s2">&quot;queen&quot;</span><span class="p">,</span> <span class="s2">&quot;monarch&quot;</span><span class="p">,</span> <span class="s2">&quot;prince&quot;</span><span class="p">,</span> <span class="s2">&quot;emperor&quot;</span><span class="p">,</span> <span class="s2">&quot;ruler&quot;</span><span class="p">]</span>
+<span class="n">similar</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span> <span class="err">→</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">,</span> <span class="s2">&quot;pineapple&quot;</span><span class="p">,</span> <span class="s2">&quot;grape&quot;</span><span class="p">]</span>
+<span class="n">similar</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span> <span class="err">→</span> <span class="p">[</span><span class="s2">&quot;jog&quot;</span><span class="p">,</span> <span class="s2">&quot;sprint&quot;</span><span class="p">,</span> <span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="s2">&quot;walk&quot;</span><span class="p">,</span> <span class="s2">&quot;exercise&quot;</span><span class="p">]</span>
+</code></pre></div>
+
 <p>These aren’t guesses. They’re learned from data. The embedding model has seen enough examples of how words are used to infer categories, associations, and themes.</p>
 
 
@@ -2261,7 +2287,7 @@ similar(&quot;run&quot;) → [&quot;jog&quot;, &quot;sprint&quot;, &quot;race&qu
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

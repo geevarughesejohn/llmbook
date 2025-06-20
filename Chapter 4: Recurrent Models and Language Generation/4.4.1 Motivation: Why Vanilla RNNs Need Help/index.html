@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2114,11 +2139,11 @@
 
   <h1>4.4.1 Motivation: Why Vanilla RNNs Need Help</h1>
 
-<h2 id="441-motivation-why-vanilla-rnns-need-help"><strong>4.4.1 Motivation: Why Vanilla RNNs Need Help</strong></h2>
+<h2 id="441-motivation-why-vanilla-rnns-need-help"><strong>4.4.1 Motivation: Why Vanilla RNNs Need Help</strong><a class="headerlink" href="#441-motivation-why-vanilla-rnns-need-help" title="Permanent link">&para;</a></h2>
 <p>Let’s say you’re reading a novel. In Chapter 1, a character named Anna is introduced as a violinist with a fear of flying. Chapters later, during a concert scene in Paris, this fear is suddenly relevant—but only if you <strong>remembered</strong> it from the beginning.</p>
 <p>Human readers have no problem holding onto important facts across long stretches of text. But for standard RNNs, this is where things start to break down.</p>
 <hr />
-<h3 id="the-memory-struggle">🤯 The Memory Struggle</h3>
+<h3 id="the-memory-struggle">🤯 The Memory Struggle<a class="headerlink" href="#the-memory-struggle" title="Permanent link">&para;</a></h3>
 <p>As we saw earlier, vanilla RNNs update their <strong>hidden state</strong> at every time step based on the current input and the previous state. This is like keeping a mental note as you read each word in a sentence. In theory, the hidden state should store all the important information it’s seen so far.</p>
 <p>In practice, however, that memory fades—quickly.</p>
 <p>Here’s why:</p>
@@ -2129,7 +2154,7 @@
 </ul>
 <p>This is the <strong>vanishing gradient problem</strong> in action.</p>
 <hr />
-<h3 id="a-simple-example">🧪 A Simple Example</h3>
+<h3 id="a-simple-example">🧪 A Simple Example<a class="headerlink" href="#a-simple-example" title="Permanent link">&para;</a></h3>
 <p>Take this sentence:</p>
 <blockquote>
 <p>“The cat that the dog chased across the garden ran away.”</p>
@@ -2137,7 +2162,7 @@
 <p>To understand <em>what</em> ran away, the model needs to know the <strong>subject</strong>: <em>The cat</em>. But this was several words ago. A vanilla RNN is likely to lose track of it by the time it reaches the word <em>ran</em>.</p>
 <p>So while vanilla RNNs are technically “recurrent,” they’re only really good at remembering the last 2–3 words. Beyond that, they tend to forget.</p>
 <hr />
-<h3 id="long-term-dependencies-a-real-need">🧠 Long-Term Dependencies: A Real Need</h3>
+<h3 id="long-term-dependencies-a-real-need">🧠 Long-Term Dependencies: A Real Need<a class="headerlink" href="#long-term-dependencies-a-real-need" title="Permanent link">&para;</a></h3>
 <p>Language is full of <strong>long-term dependencies</strong>. Here are just a few examples where long memory is essential:</p>
 <ul>
 <li><strong>Subject-verb agreement</strong> across long clauses:</li>
@@ -2152,7 +2177,7 @@
 </blockquote>
 <p>RNNs often miss these subtleties because they don’t know how to hold onto critical details over long distances.</p>
 <hr />
-<h3 id="what-we-need-a-better-memory-system">💡 What We Need: A Better Memory System</h3>
+<h3 id="what-we-need-a-better-memory-system">💡 What We Need: A Better Memory System<a class="headerlink" href="#what-we-need-a-better-memory-system" title="Permanent link">&para;</a></h3>
 <p>What if we could give the model a memory it could <strong>choose</strong> to retain or forget?</p>
 <ul>
 <li>It could <strong>decide</strong> when something is important enough to remember.</li>
@@ -2209,7 +2234,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

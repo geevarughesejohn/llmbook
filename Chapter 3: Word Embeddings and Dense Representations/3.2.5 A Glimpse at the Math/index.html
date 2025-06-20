@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -795,15 +805,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1444,15 +1459,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1512,15 +1532,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2132,14 +2157,15 @@
 
   <h1>3.2.5 A Glimpse at the Math</h1>
 
-<h2 id="325-a-glimpse-at-the-math"><strong>3.2.5 A Glimpse at the Math</strong></h2>
+<h2 id="325-a-glimpse-at-the-math"><strong>3.2.5 A Glimpse at the Math</strong><a class="headerlink" href="#325-a-glimpse-at-the-math" title="Permanent link">&para;</a></h2>
 <p>By now, you’ve seen that word embeddings are dense vectors that capture meaning, similarity, and even relationships like analogies. But how exactly are these embeddings formed? What do those numbers actually <em>represent</em>?</p>
 <p>In this section, we’ll take a gentle look at the math behind word embeddings. Don’t worry—we’ll keep it light and intuitive. You don’t need to be a mathematician to understand the big ideas.</p>
 <hr />
-<h3 id="what-is-a-word-vector-mathematically">🔢 What Is a Word Vector, Mathematically?</h3>
+<h3 id="what-is-a-word-vector-mathematically">🔢 What Is a Word Vector, Mathematically?<a class="headerlink" href="#what-is-a-word-vector-mathematically" title="Permanent link">&para;</a></h3>
 <p>A <strong>word embedding</strong> is just a vector: a list of real numbers.</p>
-<pre><code class="language-python">&quot;apple&quot; → [0.25, -0.17, 0.08, ..., 0.41]  # Maybe 100 or 300 numbers long
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;apple&quot;</span> <span class="err">→</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">]</span>  <span class="c1"># Maybe 100 or 300 numbers long</span>
+</code></pre></div>
+
 <p>Each number in this list is a <strong>dimension</strong>—think of them as “features” or “coordinates” in a high-dimensional space. A 100-dimensional embedding means every word is located somewhere in a 100D semantic space.</p>
 <p>So mathematically, we can say:</p>
 <blockquote>
@@ -2147,7 +2173,7 @@
 </blockquote>
 <p>What’s important is that the numbers are <strong>not randomly chosen</strong>. They’re <strong>learned</strong> from massive text corpora, based on how often and in what contexts a word appears.</p>
 <hr />
-<h3 id="how-are-these-vectors-learned">🧠 How Are These Vectors Learned?</h3>
+<h3 id="how-are-these-vectors-learned">🧠 How Are These Vectors Learned?<a class="headerlink" href="#how-are-these-vectors-learned" title="Permanent link">&para;</a></h3>
 <p>Word embeddings are typically learned using <strong>unsupervised learning</strong>. That means we don’t tell the model what a word means—we just let it figure things out by looking at real-world text.</p>
 <p>Here’s the idea:</p>
 <blockquote>
@@ -2174,7 +2200,7 @@
 </ol>
 <p>No human labels. Just statistics. Just context.</p>
 <hr />
-<h3 id="what-about-similarity">🧮 What About Similarity?</h3>
+<h3 id="what-about-similarity">🧮 What About Similarity?<a class="headerlink" href="#what-about-similarity" title="Permanent link">&para;</a></h3>
 <p>Once we have these vectors, we can compare any two words using <strong>cosine similarity</strong>.</p>
 <p>Mathematically, the <strong>cosine similarity</strong> between two vectors <strong>A</strong> and <strong>B</strong> is:</p>
 <p>$$
@@ -2188,18 +2214,19 @@ $$</p>
 </ul>
 <p>This tells us how aligned the two word vectors are in space. If they point in the same direction, they’re semantically similar.</p>
 <hr />
-<h3 id="a-matrix-view-optional-insight">🧩 A Matrix View (Optional Insight)</h3>
+<h3 id="a-matrix-view-optional-insight">🧩 A Matrix View (Optional Insight)<a class="headerlink" href="#a-matrix-view-optional-insight" title="Permanent link">&para;</a></h3>
 <p>If we zoom out from individual vectors, we can think of all embeddings as forming a <strong>matrix</strong>:</p>
-<pre><code>Word     |  dim_1 | dim_2 | dim_3 | ... | dim_n
+<div class="codehilite"><pre><span></span><code>Word     |  dim_1 | dim_2 | dim_3 | ... | dim_n
 ---------|--------|--------|--------|-----|-------
 apple    |  0.25  | -0.17  | 0.08   | ... | 0.41
 banana   |  0.22  | -0.13  | 0.09   | ... | 0.37
 laptop   | -0.34  | 0.48   | 0.91   | ... | -0.03
 ...
-</code></pre>
+</code></pre></div>
+
 <p>Each row is a word. Each column is a learned semantic feature. The model doesn’t name these features—they’re abstract—but they might (roughly) correspond to properties like “is a fruit,” “has emotion,” or “is a location.”</p>
 <hr />
-<h3 id="do-we-need-to-understand-the-math-to-use-embeddings">🤔 Do We Need to Understand the Math to Use Embeddings?</h3>
+<h3 id="do-we-need-to-understand-the-math-to-use-embeddings">🤔 Do We Need to Understand the Math to Use Embeddings?<a class="headerlink" href="#do-we-need-to-understand-the-math-to-use-embeddings" title="Permanent link">&para;</a></h3>
 <p>Not at all!</p>
 <p>You don’t need to do any math to use word embeddings in your projects. Libraries like <code>gensim</code>, <code>spaCy</code>, and <code>transformers</code> handle it all for you. But having this <strong>intuition</strong> helps you appreciate what’s happening under the hood—and why embeddings are so effective.</p>
 
@@ -2250,7 +2277,7 @@ laptop   | -0.34  | 0.48   | 0.91   | ... | -0.03
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>

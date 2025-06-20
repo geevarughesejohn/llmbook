@@ -197,15 +197,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -472,15 +477,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -793,15 +803,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -1344,15 +1359,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1414,15 +1434,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -2198,7 +2223,7 @@
 
   <h1>4.5.4 When to Use GRUs</h1>
 
-<h2 id="454-when-to-use-grus"><strong>4.5.4 When to Use GRUs</strong></h2>
+<h2 id="454-when-to-use-grus"><strong>4.5.4 When to Use GRUs</strong><a class="headerlink" href="#454-when-to-use-grus" title="Permanent link">&para;</a></h2>
 <p><em>A simpler solution for many sequence problems</em></p>
 <p>Now that we’ve seen what makes <strong>GRUs</strong> special and how they compare to LSTMs, the big question is:</p>
 <blockquote>
@@ -2208,8 +2233,8 @@
 <strong>More often than you might think.</strong>
 Let’s explore where GRUs shine—and where they may fall short.</p>
 <hr />
-<h3 id="grus-are-a-great-choice-when">✅ GRUs Are a Great Choice When…</h3>
-<h4 id="you-need-faster-training">🕒 <strong>You Need Faster Training</strong></h4>
+<h3 id="grus-are-a-great-choice-when">✅ GRUs Are a Great Choice When…<a class="headerlink" href="#grus-are-a-great-choice-when" title="Permanent link">&para;</a></h3>
+<h4 id="you-need-faster-training">🕒 <strong>You Need Faster Training</strong><a class="headerlink" href="#you-need-faster-training" title="Permanent link">&para;</a></h4>
 <p>GRUs have fewer gates, fewer parameters, and a smaller memory footprint than LSTMs. This makes them:</p>
 <ul>
 <li><strong>Quicker to train</strong></li>
@@ -2218,7 +2243,7 @@ Let’s explore where GRUs shine—and where they may fall short.</p>
 </ul>
 <p>If you’re working on a tight compute budget, GRUs can give you <strong>80–90% of LSTM performance at 50–70% of the cost</strong>.</p>
 <hr />
-<h4 id="you-have-a-small-or-medium-dataset">📊 <strong>You Have a Small or Medium Dataset</strong></h4>
+<h4 id="you-have-a-small-or-medium-dataset">📊 <strong>You Have a Small or Medium Dataset</strong><a class="headerlink" href="#you-have-a-small-or-medium-dataset" title="Permanent link">&para;</a></h4>
 <p>GRUs generalize well even with less data, partly because they have fewer parameters and are less prone to overfitting.
 They’re perfect for:</p>
 <ul>
@@ -2227,7 +2252,7 @@ They’re perfect for:</p>
 <li>Early-stage prototypes of NLP systems</li>
 </ul>
 <hr />
-<h4 id="youre-building-a-lightweight-model">🏗️ <strong>You’re Building a Lightweight Model</strong></h4>
+<h4 id="youre-building-a-lightweight-model">🏗️ <strong>You’re Building a Lightweight Model</strong><a class="headerlink" href="#youre-building-a-lightweight-model" title="Permanent link">&para;</a></h4>
 <p>Need something quick and practical for:</p>
 <ul>
 <li>Sentiment classification?</li>
@@ -2236,7 +2261,7 @@ They’re perfect for:</p>
 </ul>
 <p>A GRU often gets the job done without much tuning.</p>
 <hr />
-<h3 id="example-use-cases-for-grus">🔍 Example Use Cases for GRUs</h3>
+<h3 id="example-use-cases-for-grus">🔍 Example Use Cases for GRUs<a class="headerlink" href="#example-use-cases-for-grus" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2268,7 +2293,7 @@ They’re perfect for:</p>
 </tbody>
 </table>
 <hr />
-<h3 id="when-not-to-use-grus">❌ When Not to Use GRUs</h3>
+<h3 id="when-not-to-use-grus">❌ When Not to Use GRUs<a class="headerlink" href="#when-not-to-use-grus" title="Permanent link">&para;</a></h3>
 <p>Despite their strengths, GRUs may not be the best fit when:</p>
 <ul>
 <li>You have <strong>very long-range dependencies</strong> in the input</li>
@@ -2280,7 +2305,7 @@ They’re perfect for:</p>
 </blockquote>
 <p>In these cases, LSTMs or Transformers may give better results, even if they take longer to train.</p>
 <hr />
-<h3 id="tip-use-gru-as-a-baseline">🧠 Tip: Use GRU as a Baseline</h3>
+<h3 id="tip-use-gru-as-a-baseline">🧠 Tip: Use GRU as a Baseline<a class="headerlink" href="#tip-use-gru-as-a-baseline" title="Permanent link">&para;</a></h3>
 <p>Many researchers and practitioners use GRUs as their <strong>first model</strong> for sequence tasks. Why?</p>
 <ul>
 <li>It’s simple to implement (especially with libraries like PyTorch or Keras)</li>
@@ -2289,7 +2314,7 @@ They’re perfect for:</p>
 </ul>
 <p>Once you’ve seen how a GRU performs, you can always move up to LSTMs—or even Transformers—if needed.</p>
 <hr />
-<h3 id="summary">🧩 Summary</h3>
+<h3 id="summary">🧩 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <ul>
 <li>GRUs are a <strong>fast, efficient alternative</strong> to LSTMs</li>
 <li>They perform well on most sequence tasks, especially when data or compute is limited</li>
@@ -2345,7 +2370,7 @@ They’re perfect for:</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
