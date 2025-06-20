@@ -1,0 +1,2650 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/chapter/">
+      
+      
+        <link rel="next" href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.1%20Introduction%20%E2%80%93%20Why%20Word%20Order%20and%20Memory%20Matter/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Chapter - From Words to Intelligence: A Complete Guide to Large Language Models</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-3-introduction-to-machine-learning-and-neural-networks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-header__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            From Words to Intelligence: A Complete Guide to Large Language Models
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="From Words to Intelligence: A Complete Guide to Large Language Models" class="md-nav__button md-logo" aria-label="From Words to Intelligence: A Complete Guide to Large Language Models" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    From Words to Intelligence: A Complete Guide to Large Language Models
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: The Language Modeling Problem  
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 1: The Language Modeling Problem  
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.1%20learning%20objective/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 1: The Language Modeling Problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.2%20Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.3%20What%20Does%20It%20Mean%20to%20%E2%80%9CModel%E2%80%9D%20Language%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.3 What Does It Mean to “Model” Language?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.4%20A%20Brief%20History%20of%20Language%20Modeling%3A%20Rules%20%E2%86%92%20Statistics%20%E2%86%92%20Neural%20Nets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.4 A Brief History of Language Modeling: Rules → Statistics → Neural Nets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.5%20Why%20Is%20Modeling%20Language%20So%20Difficult%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.5 Why Is Modeling Language So Difficult?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.6%20Code%20Example%3A%20A%20Tiny%20Predictive%20Language%20Model%20%28with%20N-Grams%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.6 Code Example: A Tiny Predictive Language Model (with N Grams)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.7%20Summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.7 Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.8%20Key%20Takeaways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.8 Key Takeaways
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/1.9%20Quiz%20Exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.9 Quiz Exercises
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%201%3A%20The%20Language%20Modeling%20Problem%20%20/ngrms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ngrms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapter 2: Classical NLP Techniques
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 2: Classical NLP Techniques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/1%20Introduction%3A%20What%20is%20Classical%20NLP%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1 Introduction: What is Classical NLP?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/2%20Text%20Preprocessing%3A%20Cleaning%20Up%20Language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2 Text Preprocessing: Cleaning Up Language
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/3%20Why%20Machines%20Need%20Numbers%20for%20clarity%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3 Why Machines Need Numbers for clarity?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/3.1%20The%20Bag-of-Words%20%28BoW%29%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 The Bag of Words (BoW) Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/3.2%20Term%20Frequency%E2%80%93Inverse%20Document%20Frequency%20%28TF-IDF%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Term Frequency–Inverse Document Frequency (TF IDF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/3.3%20TF-IDF%3A%20Sparse%20Vectors%20and%20High%20Dimensionality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 TF IDF: Sparse Vectors and High Dimensionality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/4%20Classical%20NLP%20Pipelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4 Classical NLP Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/5%20Limitations%20of%20Rule-Based%20and%20Statistical%20Methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5 Limitations of Rule Based and Statistical Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3AA%20Classical%20Pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E:A Classical Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ABoW%20with%20Scikit-learn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E:BoW with Scikit learn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/E%3ATF-IDF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E:TF IDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%202%3A%20Classical%20NLP%20Techniques/chapter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Word Embeddings and Dense Representations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 3: Word Embeddings and Dense Representations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/%20Code%20Example%3A%20Using%20Pretrained%20Word%20Embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+     Code Example: Using Pretrained Word Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.1%20Introduction%3A%20From%20Counting%20Words%20to%20Capturing%20Meaning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Word Embeddings and Dense Representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.1%20What%20Is%20a%20Word%20Embedding%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2.1 What Is a Word Embedding?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.2%20Sparse%20vs.%20Dense%20Representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2.2 Sparse vs. Dense Representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.3%20How%20Embeddings%20Represent%20Similarity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2.3 How Embeddings Represent Similarity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.4%20The%20Shape%20of%20Meaning%3A%20Embedding%20Space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2.4 The Shape of Meaning: Embedding Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.2.5%20A%20Glimpse%20at%20the%20Math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2.5 A Glimpse at the Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.3%20How%20Embeddings%20Capture%20Meaning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 How Embeddings Capture Meaning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.1%20What%20Is%20Word2Vec%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4.1 What Is Word2Vec?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.2%20CBOW%20and%20Skip-Gram%3A%20Two%20Learning%20Strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4.2 CBOW and Skip Gram: Two Learning Strategies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.3%20Training%20Word2Vec%3A%20How%20the%20Model%20Learns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4.3 Training Word2Vec: How the Model Learns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.4%20Negative%20Sampling%20and%20Efficiency%20Tricks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4.4 Negative Sampling and Efficiency Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.5%20Practical%20Example%3A%20Training%20Word2Vec%20in%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4.5 Practical Example: Training Word2Vec in Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.4.6%20Strengths%20and%20Limitations%20of%20Word2Vec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4.6 Strengths and Limitations of Word2Vec
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5%20Beyond%20Word2Vec%20%E2%80%93%20The%20Evolution%20of%20Word%20Embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 Beyond Word2Vec – The Evolution of Word Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.1%20Why%20Move%20Beyond%20Word2Vec%3F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5.1 Why Move Beyond Word2Vec?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.2%20FastText%20%E2%80%93%20Words%20as%20Bags%20of%20Subwords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5.2 FastText – Words as Bags of Subwords
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.3%20GloVe%20%E2%80%93%20Global%20Vectors%20for%20Word%20Representation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5.3 GloVe – Global Vectors for Word Representation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.5.4%20Comparing%20Word2Vec%2C%20GloVe%2C%20and%20FastText/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5.4 Comparing Word2Vec, GloVe, and FastText
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/3.6%20Limitations%20of%20Word%20Embeddings%20%E2%80%94%20And%20What%20Comes%20Next/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.6 Limitations of Word Embeddings — And What Comes Next
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/Learning%20Objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3: Word Embeddings and Dense Representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%203%3A%20Word%20Embeddings%20and%20Dense%20Representations/chapter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapter 3E: Introduction to Machine Learning and Neural Networks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 3E: Introduction to Machine Learning and Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Chapter
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chapter
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-3-introduction-to-machine-learning-and-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      📘 Chapter 3: Introduction to Machine Learning and Neural Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📘 Chapter 3: Introduction to Machine Learning and Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-core-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Core Sections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-traditional-programming-vs-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Traditional Programming vs. Machine Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-what-is-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 What is Machine Learning?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-anatomy-of-a-machine-learning-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Anatomy of a Machine Learning Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-training-and-testing-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Training and Testing a Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-types-of-problems-ml-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Types of Problems ML Solves
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-from-linear-models-to-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 From Linear Models to Neural Networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-the-building-blocks-of-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 The Building Blocks of Neural Networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8 Activation Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-forward-pass-and-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.9 Forward Pass and Predictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310-understanding-loss-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.10 Understanding Loss Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#311-backpropagation-how-learning-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.11 Backpropagation: How Learning Happens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-optimizers-turning-gradients-into-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.12 Optimizers: Turning Gradients into Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-training-loop-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.13 Training Loop in Practice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-code-walkthrough-training-a-tiny-neural-network-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.14 Code Walkthrough: Training a Tiny Neural Network in PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315-visualizing-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.15 Visualizing Learning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-code-example-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Code Example / Case Study
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Key Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-quiz-exercises-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Quiz / Exercises (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapter 4: Recurrent Models and Language Generation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Chapter 4: Recurrent Models and Language Generation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.1%20Introduction%20%E2%80%93%20Why%20Word%20Order%20and%20Memory%20Matter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 Introduction – Why Word Order and Memory Matter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.1%20The%20Need%20for%20Sequential%20Processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2.1 The Need for Sequential Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.2%20The%20Core%20Idea%20of%20Recurrence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2.2 The Core Idea of Recurrence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.3%20Unrolling%20an%20RNN%20Over%20Time/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2.3 Unrolling an RNN Over Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.4%20RNN%20in%20Practice%20%E2%80%93%20A%20Step-by-Step%20Example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2.4 RNN in Practice – A Step by Step Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.2.5%3A%20Strengths%20and%20Weaknesses%20of%20Vanilla%20RNNs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2.5: Strengths and Weaknesses of Vanilla RNNs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.3%20The%20Problem%20of%20Vanishing%20Gradients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 The Problem of Vanishing Gradients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.1%20Motivation%3A%20Why%20Vanilla%20RNNs%20Need%20Help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4.1 Motivation: Why Vanilla RNNs Need Help
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.2%20Inside%20the%20LSTM%20Cell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4.2 Inside the LSTM Cell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.3%20How%20LSTMs%20Process%20Sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4.3 How LSTMs Process Sequences
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.4.4%20When%20and%20Why%20to%20Use%20LSTMs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4.4 When and Why to Use LSTMs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.1%20Motivation%20for%20GRUs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5.1 Motivation for GRUs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.2%20Inside%20the%20GRU%20Cell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5.2 Inside the GRU Cell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.3%20Comparing%20GRU%20and%20LSTM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5.3 Comparing GRU and LSTM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.5.4%20When%20to%20Use%20GRUs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5.4 When to Use GRUs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.1%3A%20Language%20Generation%20with%20RNNs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6.1: Language Generation with RNNs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.2%20Training%20a%20Recurrent%20Language%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6.2 Training a Recurrent Language Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.3%20Sampling%20and%20Generation%20During%20Inference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6.3 Sampling and Generation During Inference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.4%20Code%20Example%20%E2%80%93%20Generating%20Text%20with%20GRU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6.4 Code Example – Generating Text with GRU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/4.6.5%20Challenges%20and%20Limitations%20of%20RNN-based%20Generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6.5 Challenges and Limitations of RNN based Generation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Chapter%204%3A%20Recurrent%20Models%20and%20Language%20Generation/RNN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-3-introduction-to-machine-learning-and-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      📘 Chapter 3: Introduction to Machine Learning and Neural Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📘 Chapter 3: Introduction to Machine Learning and Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Introduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-core-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Core Sections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-traditional-programming-vs-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Traditional Programming vs. Machine Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-what-is-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 What is Machine Learning?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-anatomy-of-a-machine-learning-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Anatomy of a Machine Learning Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-training-and-testing-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Training and Testing a Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-types-of-problems-ml-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Types of Problems ML Solves
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-from-linear-models-to-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 From Linear Models to Neural Networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-the-building-blocks-of-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 The Building Blocks of Neural Networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8 Activation Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-forward-pass-and-predictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.9 Forward Pass and Predictions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310-understanding-loss-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.10 Understanding Loss Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#311-backpropagation-how-learning-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.11 Backpropagation: How Learning Happens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-optimizers-turning-gradients-into-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.12 Optimizers: Turning Gradients into Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-training-loop-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.13 Training Loop in Practice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-code-walkthrough-training-a-tiny-neural-network-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.14 Code Walkthrough: Training a Tiny Neural Network in PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315-visualizing-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.15 Visualizing Learning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-code-example-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Code Example / Case Study
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Key Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-quiz-exercises-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Quiz / Exercises (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Chapter</h1>
+
+<h2 id="chapter-3-introduction-to-machine-learning-and-neural-networks">📘 Chapter 3: Introduction to Machine Learning and Neural Networks</h2>
+<h3 id="1-learning-objectives">1. <strong>Learning Objectives</strong></h3>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Understand how Machine Learning differs from traditional programming.</li>
+<li>Identify and define basic ML concepts such as features, labels, models, training, testing, and loss.</li>
+<li>Explain how simple neural networks function.</li>
+<li>Understand the importance of activation functions and how they add non-linearity.</li>
+<li>Describe how backpropagation and optimizers like SGD or Adam work.</li>
+<li>Implement a basic neural network using PyTorch.</li>
+</ul>
+<hr />
+<h3 id="2-introduction">2. <strong>Introduction</strong></h3>
+<ul>
+<li>Why are machines learning?</li>
+<li>From symbolic rules to statistical learning: the shift in AI.</li>
+<li>The role of Machine Learning in modern AI systems, especially LLMs.</li>
+</ul>
+<hr />
+<h3 id="3-core-sections">3. <strong>Core Sections</strong></h3>
+<h4 id="31-traditional-programming-vs-machine-learning"><strong>3.1 Traditional Programming vs. Machine Learning</strong></h4>
+<ul>
+<li>“If-else” vs. “learn-from-data” approaches.</li>
+<li>Analogy: Teaching a child rules vs. letting them learn from examples.</li>
+</ul>
+<h4 id="32-what-is-machine-learning"><strong>3.2 What is Machine Learning?</strong></h4>
+<ul>
+<li>Defining ML in simple language.</li>
+<li>Types of ML: <strong>Supervised</strong>, <strong>Unsupervised</strong>, and <strong>Reinforcement Learning</strong> (brief overview with examples).</li>
+</ul>
+<h4 id="33-anatomy-of-a-machine-learning-problem"><strong>3.3 Anatomy of a Machine Learning Problem</strong></h4>
+<ul>
+<li><strong>Features</strong> and <strong>labels</strong> explained with examples.</li>
+<li>The structure of a typical ML dataset.</li>
+<li><strong>Model</strong>, <strong>predictions</strong>, and <strong>loss</strong>: key players in the ML pipeline.</li>
+</ul>
+<h4 id="34-training-and-testing-a-model"><strong>3.4 Training and Testing a Model</strong></h4>
+<ul>
+<li>The idea of <strong>generalization</strong>.</li>
+<li>Why we split data: <strong>training</strong>, <strong>validation</strong>, and <strong>test</strong> sets.</li>
+<li>The concept of <strong>overfitting</strong> and <strong>underfitting</strong>, visualized.</li>
+</ul>
+<h4 id="35-types-of-problems-ml-solves"><strong>3.5 Types of Problems ML Solves</strong></h4>
+<ul>
+<li>Classification vs. Regression (with intuitive examples).</li>
+<li>Examples from NLP: spam detection, sentiment analysis.</li>
+</ul>
+<h4 id="36-from-linear-models-to-neural-networks"><strong>3.6 From Linear Models to Neural Networks</strong></h4>
+<ul>
+<li>Limitations of linear models.</li>
+<li>Need for multiple layers and non-linear boundaries.</li>
+<li>First intuition of a neural network.</li>
+</ul>
+<h4 id="37-the-building-blocks-of-neural-networks"><strong>3.7 The Building Blocks of Neural Networks</strong></h4>
+<ul>
+<li><strong>Neurons</strong>: mathematical units.</li>
+<li>Layers: <strong>input</strong>, <strong>hidden</strong>, and <strong>output</strong>.</li>
+<li>Visual representation of a simple feedforward network.</li>
+</ul>
+<h4 id="38-activation-functions"><strong>3.8 Activation Functions</strong></h4>
+<ul>
+<li>Why linear models fall short.</li>
+<li>What activation functions do (intuitively and mathematically).</li>
+<li>
+<p>Common types:</p>
+</li>
+<li>
+<p><code>ReLU</code></p>
+</li>
+<li><code>Sigmoid</code></li>
+<li><code>Tanh</code></li>
+<li>(Optional) Mention of <code>Softmax</code> for output layers</li>
+</ul>
+<h4 id="39-forward-pass-and-predictions"><strong>3.9 Forward Pass and Predictions</strong></h4>
+<ul>
+<li>The data flow from input to output.</li>
+<li>How predictions are made.</li>
+</ul>
+<h4 id="310-understanding-loss-functions"><strong>3.10 Understanding Loss Functions</strong></h4>
+<ul>
+<li>What is loss?</li>
+<li>
+<p>Examples of loss functions:</p>
+</li>
+<li>
+<p><code>MSE</code> (Mean Squared Error)</p>
+</li>
+<li><code>Cross-Entropy</code> (for classification)</li>
+<li>Why minimizing loss is the goal.</li>
+</ul>
+<h4 id="311-backpropagation-how-learning-happens"><strong>3.11 Backpropagation: How Learning Happens</strong></h4>
+<ul>
+<li>Intuition: feedback and blame assignment.</li>
+<li>A beginner-friendly walkthrough of backpropagation.</li>
+<li>The role of gradients.</li>
+</ul>
+<h4 id="312-optimizers-turning-gradients-into-learning"><strong>3.12 Optimizers: Turning Gradients into Learning</strong></h4>
+<ul>
+<li>What is an optimizer?</li>
+<li>How <code>SGD</code> and <code>Adam</code> help a model improve.</li>
+<li>Learning rate and its effects.</li>
+</ul>
+<h4 id="313-training-loop-in-practice"><strong>3.13 Training Loop in Practice</strong></h4>
+<ul>
+<li>Epochs, batches, and iterations.</li>
+<li>Step-by-step flow of training a model.</li>
+<li>Monitoring and evaluating performance.</li>
+</ul>
+<h4 id="314-code-walkthrough-training-a-tiny-neural-network-in-pytorch"><strong>3.14 Code Walkthrough: Training a Tiny Neural Network in PyTorch</strong></h4>
+<ul>
+<li>A fully commented beginner-level example.</li>
+<li>Code trains a network to solve a basic classification or regression task.</li>
+<li>Explanation of inputs, model, training steps, and outputs.</li>
+</ul>
+<h4 id="315-visualizing-learning"><strong>3.15 Visualizing Learning</strong></h4>
+<ul>
+<li>Plotting loss over time.</li>
+<li>Optional: decision boundaries for 2D data.</li>
+<li>Visual idea of how the model learns better with each epoch.</li>
+</ul>
+<hr />
+<h3 id="4-code-example-case-study">4. <strong>Code Example / Case Study</strong></h3>
+<ul>
+<li>Full code in a real environment with explanations.</li>
+<li>Emphasis on how each component maps to theory (data → model → loss → optimization).</li>
+</ul>
+<hr />
+<h3 id="5-summary">5. <strong>Summary</strong></h3>
+<ul>
+<li>A narrative wrap-up of all concepts in plain language.</li>
+</ul>
+<hr />
+<h3 id="6-key-takeaways">6. <strong>Key Takeaways</strong></h3>
+<ul>
+<li>Bullet points summarizing main concepts, formulas, and intuition.</li>
+</ul>
+<hr />
+<h3 id="7-quiz-exercises-optional">7. <strong>Quiz / Exercises (Optional)</strong></h3>
+<ul>
+<li>Concept checks: match-the-following, fill in the blanks.</li>
+<li>Practice: train the same model with different activation functions and observe.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
