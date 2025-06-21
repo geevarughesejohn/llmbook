@@ -1,8 +1,11 @@
 site_name: "From Words to Intelligence: A Complete Guide to Large Language Models"
+site_url: https://geevarughesejohn.github.io/llmbook/
+use_directory_urls: false
 docs_dir: docs
+theme:
+  name: material
+
 plugins:
   - search
   - awesome-pages
   - mkdocs-jupyter
-theme:
-  name: material
